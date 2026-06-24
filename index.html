@@ -1386,11 +1386,12 @@ body.theme-lgdark .rm-btn::before,body.theme-lglight .rm-btn::before{opacity:.5;
   opacity:0;
   pointer-events:none;
   z-index:500;
-  min-width:220px;max-width:320px;
-  padding:22px 28px 18px;
+  min-width:260px;max-width:360px;
+  padding:28px 36px 24px;
   border-radius:var(--radius-xl);
   text-align:center;
   transition:opacity .22s cubic-bezier(.4,0,.2,1), transform .28s cubic-bezier(.34,1.56,.64,1);
+  filter:drop-shadow(0 0 32px rgba(0,0,0,.4));
 }
 #noteTransferPopup.show{
   opacity:1;
@@ -1457,9 +1458,9 @@ body.theme-lglight #noteTransferPopup::before{
   background:radial-gradient(ellipse 65% 40% at 28% 18%,rgba(255,255,255,.22) 0%,transparent 100%);
   pointer-events:none;border-radius:inherit;
 }
-#noteTransferPopup .ntp-icon{font-size:28px;margin-bottom:6px;display:block;}
-#noteTransferPopup .ntp-label{font-size:13px;font-weight:700;color:var(--text-primary);margin-bottom:3px;}
-#noteTransferPopup .ntp-sub{font-size:11px;color:var(--text-secondary);}
+#noteTransferPopup .ntp-icon{font-size:36px;margin-bottom:8px;display:block;}
+#noteTransferPopup .ntp-label{font-size:16px;font-weight:700;color:var(--text-primary);margin-bottom:4px;}
+#noteTransferPopup .ntp-sub{font-size:13px;color:var(--text-secondary);}
 
 /* ===== NOTE FLY-IN FROM PHONE TO NOTES COL ===== */
 @keyframes noteFromPhone{
@@ -1627,16 +1628,113 @@ body.theme-lglight .rm-section::after{
 #rmProgressInfo{font-size:13px;text-align:center;color:var(--text-secondary);}
 
 .toast{
-  position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(16px);
-  background:var(--glass);border:1px solid var(--glass-border);
-  backdrop-filter:blur(var(--glass-blur));-webkit-backdrop-filter:blur(var(--glass-blur));
-  color:var(--text-primary);padding:10px 18px;border-radius:var(--btn-shape);
-  font-size:13px;font-weight:500;opacity:0;transition:.3s;pointer-events:none;z-index:300;
-  box-shadow:0 4px 20px var(--shadow);white-space:nowrap;
+  position:fixed;top:50%;left:50%;
+  transform:translate(-50%,-50%) scale(0.88);
+  background:rgba(28,28,30,.72);
+  border:1px solid rgba(255,255,255,.22);
+  backdrop-filter:blur(32px) saturate(160%) brightness(112%);
+  -webkit-backdrop-filter:blur(32px) saturate(160%) brightness(112%);
+  color:var(--text-primary);
+  padding:16px 32px;
+  border-radius:var(--radius-xl,24px);
+  font-size:16px;font-weight:600;
+  opacity:0;
+  transition:opacity .25s cubic-bezier(.4,0,.2,1), transform .3s cubic-bezier(.34,1.56,.64,1);
+  pointer-events:none;z-index:9000;
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.10) inset,
+    0 2px 0 rgba(255,255,255,.55) inset,
+    0 12px 48px rgba(0,0,0,.45),
+    0 0 60px rgba(0,0,0,.3),
+    0 0 80px rgba(0,0,0,.15);
+  white-space:nowrap;
+  filter:drop-shadow(0 0 24px rgba(0,0,0,.5));
+  overflow:hidden;
 }
-.toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+.toast::before{
+  content:'';position:absolute;top:0;left:8%;right:8%;height:1.5px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.9) 35%,rgba(255,255,255,1) 50%,rgba(255,255,255,.9) 65%,transparent);
+  pointer-events:none;
+}
+body.theme-lglight .toast{
+  background:rgba(255,255,255,.65);
+  border:1px solid rgba(255,255,255,.55);
+  color:#1c1c1e;
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.15) inset,
+    0 2px 0 rgba(255,255,255,.92) inset,
+    0 12px 48px rgba(40,80,150,.22),
+    0 0 60px rgba(100,160,220,.15);
+}
+body.theme-ios16light .toast{
+  background:rgba(255,255,255,.88);
+  border:1px solid rgba(0,0,0,.08);
+  color:#1c1c1e;
+  box-shadow:
+    0 8px 40px rgba(0,0,0,.14),
+    0 0 50px rgba(0,0,0,.08);
+}
+.toast::after{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 65% 40% at 28% 18%,rgba(255,255,255,.12) 0%,transparent 100%);
+  pointer-events:none;border-radius:inherit;
+}
+.toast.show{opacity:1;transform:translate(-50%,-50%) scale(1);}
 
-/* ===== MISC ===== */
+/* ===== STARTUP POPUP ===== */
+#startupPopup{
+  position:fixed;top:50%;left:50%;
+  transform:translate(-50%,-50%) scale(0.82);
+  opacity:0;pointer-events:none;
+  z-index:9999;
+  transition:opacity .3s cubic-bezier(.4,0,.2,1), transform .38s cubic-bezier(.34,1.56,.64,1);
+}
+#startupPopup.show{opacity:1;transform:translate(-50%,-50%) scale(1);}
+#startupPopup.hide{opacity:0;transform:translate(-50%,-50%) scale(0.88);transition:opacity .35s ease, transform .35s ease;}
+.sup-inner{
+  background:transparent;
+  border:1.25px solid rgba(255,255,255,.38);
+  border-radius:32px;
+  padding:28px 52px 22px;
+  text-align:center;
+  backdrop-filter:blur(32px) saturate(170%) brightness(115%);
+  -webkit-backdrop-filter:blur(32px) saturate(170%) brightness(115%);
+  overflow:hidden;
+  position:relative;
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.10) inset,
+    0 2px 0 rgba(255,255,255,.75) inset,
+    0 20px 70px rgba(0,0,0,.55),
+    0 0 100px rgba(0,0,0,.35),
+    0 0 140px rgba(90,200,255,.08);
+  filter:drop-shadow(0 0 40px rgba(0,0,0,.45));
+}
+.sup-inner::before{
+  content:'';position:absolute;top:0;left:8%;right:8%;height:1.5px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.95) 35%,rgba(255,255,255,1) 50%,rgba(255,255,255,.95) 65%,transparent);
+  pointer-events:none;
+}
+.sup-inner::after{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 60% 40% at 25% 15%,rgba(255,255,255,.14) 0%,transparent 100%);
+  pointer-events:none;border-radius:inherit;
+}
+.sup-title{
+  display:block;
+  font-size:26px;font-weight:800;
+  color:#ffffff;
+  letter-spacing:-.5px;
+  margin-bottom:8px;
+  position:relative;z-index:1;
+}
+.sup-sub{
+  display:block;
+  font-size:13px;font-style:italic;font-weight:400;
+  color:rgba(255,255,255,.55);
+  position:relative;z-index:1;
+}
+
+
 .footer-note{text-align:center;color:var(--text-tertiary);font-size:11px;margin-top:14px;}
 .edit-hint{text-align:center;color:var(--text-tertiary);font-size:11px;margin-top:10px;}
 [contenteditable="true"]{outline:none;cursor:text;}
@@ -1963,6 +2061,14 @@ body.theme-lglight .rm-section::after{
 <div class="footer-note">Tasks done: <span id="doneCount">0</span> / <span id="totalCount">4</span></div>
 <div class="toast" id="toast"></div>
 
+<!-- Startup "New UI available" popup -->
+<div id="startupPopup">
+  <div class="sup-inner">
+    <span class="sup-title">New UI available</span>
+    <span class="sup-sub">thanhloc local css</span>
+  </div>
+</div>
+
 <!-- Note Transfer Popup -->
 <div id="noteTransferPopup">
   <span class="ntp-icon">📌</span>
@@ -2214,7 +2320,7 @@ function showToast(msg){
 /* ============================================================ THEME + LAYOUT MORPH */
 const THEMES = ['default','ios16light','lgdark','lglight'];
 const LG_THEMES = ['lgdark','lglight'];
-let currentTheme = localStorage.getItem('deskmat_theme') || 'default';
+let currentTheme = 'lgdark'; // Always reset to Liquid Glass Dark on load
 let themeTransitioning = false;
 
 /* --- LG Notes Column ---
@@ -2874,7 +2980,7 @@ qrBtn.addEventListener('click',showQRPanel);
 
   function rmShowFeedback(cmd){
     const fb=document.createElement('div');
-    fb.style.cssText='position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--accent);color:#fff;padding:8px 18px;border-radius:20px;font-size:12px;font-weight:700;z-index:999;transition:opacity .4s;pointer-events:none;';
+    fb.style.cssText='position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:var(--accent);color:#fff;padding:14px 28px;border-radius:24px;font-size:15px;font-weight:700;z-index:9001;transition:opacity .4s;pointer-events:none;box-shadow:0 8px 40px rgba(0,0,0,.4),0 0 60px rgba(0,0,0,.2);';
     fb.textContent='✓ '+cmd.split(':')[0].replace(/_/g,' ');document.body.appendChild(fb);
     setTimeout(()=>{fb.style.opacity='0';setTimeout(()=>fb.remove(),400);},900);
   }
@@ -3186,12 +3292,23 @@ qrBtn.addEventListener('click',showQRPanel);
 
 /* POWER */
 const systemBody=document.getElementById('systemBody'),powerBtn=document.getElementById('powerBtn'),powerDot=document.getElementById('powerDot'),powerOverlay=document.getElementById('powerOverlay');
+const startupPopup=document.getElementById('startupPopup');
+function showStartupPopup(){
+  if(!startupPopup)return;
+  startupPopup.classList.remove('hide');
+  startupPopup.classList.add('show');
+  setTimeout(()=>{
+    startupPopup.classList.remove('show');
+    startupPopup.classList.add('hide');
+  },1200);
+}
 function setSystemPower(on){
   systemOn=on;
   systemBody.classList.toggle('system-on',on);systemBody.classList.toggle('system-off',!on);
   powerBtn.classList.toggle('is-on',on);powerDot.classList.toggle('green',on);
   powerOverlay.classList.toggle('show',!on);
-  showToast(on?'🟢 Hệ thống đã khởi động':'⏻ Hệ thống đã tắt');
+  if(on){ showStartupPopup(); }
+  else { showToast('⏻ Hệ thống đã tắt'); }
 }
 powerBtn.addEventListener('click',()=>setSystemPower(!systemOn));
 setSystemPower(false);
