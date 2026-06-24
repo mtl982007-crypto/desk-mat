@@ -39,7 +39,7 @@
   --accent2:#30d158;
   --accent3:#ff453a;
   --accent4:#ff9f0a;
-  --note1:rgba(255,214,10,.18);
+  --note1:rgba(255,214,10,.14);
   --note1-border:rgba(255,214,10,.35);
   --note1-text:#ffd60a;
   --note2:rgba(255,69,58,.15);
@@ -78,9 +78,10 @@
   --btn-shape:var(--radius-pill);
   --ease-spring:cubic-bezier(.34,1.56,.64,1);
   --ease-smooth:cubic-bezier(.4,0,.2,1);
-  --glass-blur:20px;
-  --glass-blur-lg:34px;
+  --glass-blur:18px;
+  --glass-blur-lg:24px;
   --glass-sat:130%;
+  --glass-top:rgba(255,255,255,.14);
   --mat-shadow:0 20px 60px rgba(0,0,0,.45);
 }
 
@@ -130,21 +131,22 @@ body.theme-ios16light{
   --font-main:-apple-system,BlinkMacSystemFont,'SF Pro Text','SF Pro Display',Helvetica,Arial,sans-serif;
   --radius-xs:8px;--radius-sm:12px;--radius-md:16px;--radius-lg:20px;--radius-xl:24px;--radius-mat:22px;
   --radius-pill:10px;--note-rotate:0deg;--panel-border-w:1px;--btn-shape:var(--radius-pill);
-  --glass-blur:20px;--glass-blur-lg:34px;--glass-sat:130%;
+  --glass-blur:18px;--glass-blur-lg:24px;--glass-sat:130%;--glass-top:rgba(255,255,255,.18);
   --mat-shadow:0 16px 40px rgba(0,0,0,.10);
 }
 
 /* Liquid Glass Dark (iOS 26 style) */
 body.theme-lgdark{
   --bg-primary:#060912;
-  --bg-secondary:rgba(255,255,255,.05);
-  --bg-tertiary:rgba(255,255,255,.09);
-  --bg-quaternary:rgba(255,255,255,.14);
-  --surface:rgba(255,255,255,.07);
-  --surface-elevated:rgba(255,255,255,.12);
-  --glass:rgba(255,255,255,.10);
-  --glass-border:rgba(255,255,255,.32);
-  --glass-highlight:rgba(255,255,255,.55);
+  --bg-secondary:rgba(255,255,255,.04);
+  --bg-tertiary:rgba(255,255,255,.08);
+  --bg-quaternary:rgba(255,255,255,.13);
+  --surface:rgba(255,255,255,.06);
+  --surface-elevated:rgba(255,255,255,.11);
+  --glass:rgba(255,255,255,.00);
+  --glass-border:rgba(255,255,255,.30);
+  --glass-highlight:rgba(255,255,255,.88);
+  --glass-top:rgba(255,255,255,.50);
   --text-primary:#ffffff;
   --text-secondary:rgba(255,255,255,.72);
   --text-tertiary:rgba(255,255,255,.38);
@@ -153,16 +155,16 @@ body.theme-lgdark{
   --accent3:#ff7a70;
   --accent4:#ffd54a;
   --note1:rgba(255,214,10,.14);
-  --note1-border:rgba(255,214,10,.45);
+  --note1-border:rgba(255,255,255,.18);
   --note1-text:#ffd60a;
   --note2:rgba(255,105,97,.12);
-  --note2-border:rgba(255,105,97,.45);
+  --note2-border:rgba(255,255,255,.18);
   --note2-text:#ff8077;
   --note3:rgba(90,200,255,.12);
-  --note3-border:rgba(90,200,255,.45);
+  --note3-border:rgba(255,255,255,.18);
   --note3-text:#7fd6ff;
   --note4:rgba(50,227,145,.12);
-  --note4-border:rgba(50,227,145,.45);
+  --note4-border:rgba(255,255,255,.18);
   --note4-text:#5cedab;
   --separator:rgba(255,255,255,.14);
   --shadow:rgba(0,0,0,.55);
@@ -175,27 +177,28 @@ body.theme-lgdark{
   --clock-tick:rgba(255,255,255,.55);
   --clock-hand:rgba(255,255,255,.95);
   --clock-second:#5ac8ff;
-  --panel-bg:rgba(255,255,255,.08);
+  --panel-bg:rgba(255,255,255,.00);
 
   /* rounded, soft, liquid identity */
   --font-main:'Nunito',-apple-system,'SF Pro Rounded',BlinkMacSystemFont,Helvetica,Arial,sans-serif;
   --radius-xs:14px;--radius-sm:18px;--radius-md:26px;--radius-lg:32px;--radius-xl:40px;--radius-mat:38px;
   --radius-pill:999px;--note-rotate:-.4deg;--panel-border-w:1.25px;--btn-shape:999px;
-  --glass-blur:30px;--glass-blur-lg:46px;--glass-sat:190%;
+  --glass-blur:14px;--glass-blur-lg:20px;--glass-sat:140%;--glass-bright:108%;
   --mat-shadow:0 30px 80px rgba(0,0,0,.6);
 }
 
 /* Liquid Glass Light (iOS 26 style) */
 body.theme-lglight{
-  --bg-primary:#eef5fb;
-  --bg-secondary:rgba(255,255,255,.62);
-  --bg-tertiary:rgba(255,255,255,.5);
-  --bg-quaternary:rgba(255,255,255,.34);
-  --surface:rgba(255,255,255,.58);
-  --surface-elevated:rgba(255,255,255,.8);
-  --glass:rgba(255,255,255,.5);
-  --glass-border:rgba(255,255,255,.85);
-  --glass-highlight:rgba(255,255,255,.95);
+  --bg-primary:#daeeff;
+  --bg-secondary:rgba(255,255,255,.55);
+  --bg-tertiary:rgba(255,255,255,.45);
+  --bg-quaternary:rgba(255,255,255,.32);
+  --surface:rgba(255,255,255,.50);
+  --surface-elevated:rgba(255,255,255,.75);
+  --glass:rgba(255,255,255,.00);
+  --glass-border:rgba(255,255,255,.35);
+  --glass-highlight:rgba(255,255,255,.92);
+  --glass-top:rgba(255,255,255,.55);
   --text-primary:#1c1c1e;
   --text-secondary:rgba(28,28,30,.68);
   --text-tertiary:rgba(28,28,30,.38);
@@ -203,35 +206,35 @@ body.theme-lglight{
   --accent2:#1fa257;
   --accent3:#e6453a;
   --accent4:#e08900;
-  --note1:rgba(255,214,10,.28);
-  --note1-border:rgba(210,165,0,.55);
+  --note1:rgba(255,214,10,.14);
+  --note1-border:rgba(255,255,255,.55);
   --note1-text:#8a6500;
-  --note2:rgba(255,100,90,.2);
-  --note2-border:rgba(210,65,55,.45);
+  --note2:rgba(255,100,90,.15);
+  --note2-border:rgba(255,255,255,.55);
   --note2-text:#a0251c;
-  --note3:rgba(0,140,255,.16);
-  --note3-border:rgba(0,120,230,.4);
+  --note3:rgba(0,140,255,.12);
+  --note3-border:rgba(255,255,255,.55);
   --note3-text:#0058c7;
-  --note4:rgba(30,190,90,.16);
-  --note4-border:rgba(30,170,80,.4);
+  --note4:rgba(30,190,90,.12);
+  --note4-border:rgba(255,255,255,.55);
   --note4-text:#177a3a;
   --separator:rgba(0,0,40,.08);
   --shadow:rgba(30,60,120,.18);
-  --mat-bg:rgba(255,255,255,.4);
-  --mat-border:rgba(255,255,255,.75);
-  --phone-bg:rgba(255,255,255,.5);
-  --phone-border:rgba(255,255,255,.8);
-  --clock-face:rgba(255,255,255,.65);
+  --mat-bg:rgba(255,255,255,.28);
+  --mat-border:rgba(255,255,255,.60);
+  --phone-bg:rgba(255,255,255,.35);
+  --phone-border:rgba(255,255,255,.65);
+  --clock-face:rgba(255,255,255,.55);
   --clock-stroke:rgba(0,0,40,.08);
   --clock-tick:rgba(20,20,40,.45);
   --clock-hand:#1c1c1e;
   --clock-second:#e6453a;
-  --panel-bg:rgba(255,255,255,.55);
+  --panel-bg:rgba(255,255,255,.00);
 
   --font-main:'Nunito',-apple-system,'SF Pro Rounded',BlinkMacSystemFont,Helvetica,Arial,sans-serif;
   --radius-xs:14px;--radius-sm:18px;--radius-md:26px;--radius-lg:32px;--radius-xl:40px;--radius-mat:38px;
   --radius-pill:999px;--note-rotate:-.4deg;--panel-border-w:1.25px;--btn-shape:999px;
-  --glass-blur:30px;--glass-blur-lg:46px;--glass-sat:190%;
+  --glass-blur:14px;--glass-blur-lg:20px;--glass-sat:140%;--glass-bright:108%;
   --mat-shadow:0 26px 70px rgba(40,80,150,.22);
 }
 
@@ -249,28 +252,32 @@ body{
 }
 
 /* --- iOS 16 Dark bg: deep black, slow drifting nebula --- */
+/* Perf note: animates `transform: translate()` only — this is the one
+   CSS animation that the compositor truly offloads to the GPU without
+   any CPU repaint per frame. background-position animation (the earlier
+   approach) still has to repaint the gradient every frame on most
+   browsers, so it was replaced. The layer is sized 130% of the viewport
+   so the translate never reveals an edge. */
 body{background:#000000;}
 body::before{
-  content:'';position:fixed;inset:-10%;pointer-events:none;z-index:-2;
+  content:'';position:fixed;top:-15%;left:-15%;right:-15%;bottom:-15%;
+  pointer-events:none;z-index:-2;will-change:transform;
   background:
-    radial-gradient(circle at 18% 12%,rgba(10,132,255,.16) 0%,transparent 42%),
-    radial-gradient(circle at 85% 80%,rgba(255,69,58,.08) 0%,transparent 45%),
-    radial-gradient(circle at 60% 95%,rgba(48,209,88,.07) 0%,transparent 40%);
-  background-size:140% 140%;
-  animation:iosDarkDrift 34s ease-in-out infinite;
-  filter:blur(6px);
+    radial-gradient(circle at 18% 12%,rgba(10,132,255,.14) 0%,transparent 38%),
+    radial-gradient(circle at 85% 80%,rgba(255,69,58,.07) 0%,transparent 40%),
+    radial-gradient(circle at 60% 95%,rgba(48,209,88,.06) 0%,transparent 36%);
+  animation:iosDarkDrift 46s linear infinite;
 }
 
 /* --- iOS 16 Light bg --- */
 body.theme-ios16light{background:#f2f2f7;}
 body.theme-ios16light::before{
+  will-change:transform;
   background:
-    radial-gradient(circle at 15% 8%,rgba(10,132,255,.14) 0%,transparent 45%),
-    radial-gradient(circle at 88% 18%,rgba(255,149,0,.10) 0%,transparent 42%),
-    radial-gradient(circle at 50% 100%,rgba(120,180,255,.12) 0%,transparent 50%);
-  background-size:150% 150%;
-  animation:iosLightDrift 28s ease-in-out infinite;
-  filter:blur(8px);
+    radial-gradient(circle at 15% 8%,rgba(10,132,255,.12) 0%,transparent 40%),
+    radial-gradient(circle at 88% 18%,rgba(255,149,0,.08) 0%,transparent 38%),
+    radial-gradient(circle at 50% 100%,rgba(120,180,255,.10) 0%,transparent 45%);
+  animation:iosLightDrift 42s linear infinite;
 }
 
 /* --- Liquid Glass Dark bg: deep, fluid, glassy color blobs --- */
@@ -278,56 +285,265 @@ body.theme-lgdark{
   background:radial-gradient(ellipse 120% 100% at 30% 0%,#0e1730 0%,#070b16 55%,#04060d 100%);
 }
 body.theme-lgdark::before{
+  will-change:transform;
   background:
-    radial-gradient(circle at 22% 24%,rgba(90,200,255,.30) 0%,transparent 38%),
-    radial-gradient(circle at 78% 18%,rgba(170,110,255,.24) 0%,transparent 40%),
-    radial-gradient(circle at 70% 78%,rgba(50,227,145,.18) 0%,transparent 42%),
-    radial-gradient(circle at 15% 85%,rgba(255,213,74,.12) 0%,transparent 38%);
-  background-size:160% 160%;
-  animation:lgFluidDrift 24s ease-in-out infinite;
-  filter:blur(2px) saturate(160%);
+    radial-gradient(circle at 22% 24%,rgba(90,200,255,.26) 0%,transparent 34%),
+    radial-gradient(circle at 78% 18%,rgba(170,110,255,.20) 0%,transparent 36%),
+    radial-gradient(circle at 70% 78%,rgba(50,227,145,.15) 0%,transparent 38%),
+    radial-gradient(circle at 15% 85%,rgba(255,213,74,.10) 0%,transparent 34%);
+  animation:lgFluidDrift 34s linear infinite;
 }
 
 /* --- Liquid Glass Light bg --- */
 body.theme-lglight{
-  background:radial-gradient(ellipse 120% 100% at 30% 0%,#d9ecff 0%,#eef5fb 55%,#f4eefc 100%);
+  background:radial-gradient(ellipse 130% 110% at 25% -5%,#a8d8f0 0%,#c2e8ff 30%,#daeeff 60%,#e8f8ff 100%);
 }
 body.theme-lglight::before{
+  will-change:transform;
   background:
-    radial-gradient(circle at 20% 20%,rgba(120,190,255,.45) 0%,transparent 42%),
-    radial-gradient(circle at 80% 15%,rgba(200,160,255,.4) 0%,transparent 42%),
-    radial-gradient(circle at 75% 80%,rgba(140,240,210,.4) 0%,transparent 44%),
-    radial-gradient(circle at 18% 85%,rgba(255,220,150,.32) 0%,transparent 40%);
-  background-size:160% 160%;
-  animation:lgFluidDriftLight 22s ease-in-out infinite;
-  filter:blur(2px) saturate(140%);
+    radial-gradient(circle at 20% 20%,rgba(100,180,255,.55) 0%,transparent 36%),
+    radial-gradient(circle at 80% 12%,rgba(180,140,255,.42) 0%,transparent 36%),
+    radial-gradient(circle at 75% 80%,rgba(100,220,200,.45) 0%,transparent 38%),
+    radial-gradient(circle at 18% 82%,rgba(255,220,130,.35) 0%,transparent 34%);
+  animation:lgFluidDriftLight 32s linear infinite;
 }
 
-@keyframes iosDarkDrift{0%,100%{background-position:0% 0%;}50%{background-position:30% 18%;}}
-@keyframes iosLightDrift{0%,100%{background-position:0% 0%;}50%{background-position:-20% 15%;}}
-@keyframes lgFluidDrift{
-  0%,100%{background-position:0% 0%;transform:scale(1);}
-  33%{background-position:35% 20%;transform:scale(1.04);}
-  66%{background-position:-15% 30%;transform:scale(1.02);}
-}
-@keyframes lgFluidDriftLight{
-  0%,100%{background-position:0% 0%;transform:scale(1);}
-  33%{background-position:-25% 18%;transform:scale(1.03);}
-  66%{background-position:20% 28%;transform:scale(1.05);}
+/* transform-only keyframes — GPU compositor handles these with zero
+   per-frame repaint, unlike animating background-position/size which
+   forces the browser to re-rasterize the gradient every frame. */
+@keyframes iosDarkDrift{0%{transform:translate(0,0);}50%{transform:translate(3%,2%);}100%{transform:translate(0,0);}}
+@keyframes iosLightDrift{0%{transform:translate(0,0);}50%{transform:translate(-2.5%,1.5%);}100%{transform:translate(0,0);}}
+@keyframes lgFluidDrift{0%{transform:translate(0,0) scale(1);}50%{transform:translate(3.5%,2.5%) scale(1.02);}100%{transform:translate(0,0) scale(1);}}
+@keyframes lgFluidDriftLight{0%{transform:translate(0,0) scale(1);}50%{transform:translate(-3%,2%) scale(1.02);}100%{transform:translate(0,0) scale(1);}}
+
+/* removed: extra ::after ambient layer — was a 2nd always-animating
+   fullscreen paint with mix-blend-mode, costly for little visual gain. */
+
+/* ===== LIQUID GLASS LAYOUT MORPHING ===== */
+
+/* Smooth property transitions on all theme-affected elements
+   NOTE: backdrop-filter is intentionally excluded — animating it
+   forces full-viewport rasterization every frame = 100% GPU.
+   Only transition compositor-cheap properties: transform, opacity, color. */
+.panel,.wide-panel,.note,.btn,.phone-zone,.mat,.theme-bar,.power-btn,.lg-note-card{
+  transition:
+    background .55s cubic-bezier(.4,0,.2,1),
+    border-color .55s cubic-bezier(.4,0,.2,1),
+    border-radius .5s cubic-bezier(.4,0,.2,1),
+    box-shadow .55s cubic-bezier(.4,0,.2,1),
+    color .45s cubic-bezier(.4,0,.2,1),
+    opacity .4s cubic-bezier(.4,0,.2,1);
 }
 
-/* secondary ambient layer (all themes) — adds depth/parallax */
-body::after{
-  content:'';position:fixed;inset:0;pointer-events:none;z-index:-1;
-  background:
-    radial-gradient(ellipse 50% 40% at 85% 90%,rgba(255,255,255,.04) 0%,transparent 70%);
-  animation:ambientPulse 12s ease-in-out infinite;
+/* LG note specular glass background */
+body.theme-lgdark .note,body.theme-lglight .note{
+  box-shadow:0 1.5px 0 var(--glass-top) inset,0 -1px 0 rgba(0,0,0,.06) inset,0 6px 20px var(--shadow);
 }
-body.theme-lgdark::after,body.theme-lglight::after{
-  background:radial-gradient(ellipse 60% 50% at 50% 100%,rgba(255,255,255,.12) 0%,transparent 70%);
-  mix-blend-mode:overlay;
+body.theme-lgdark .note,body.theme-lglight .note{
+  background:var(--note1);
+  border:1px solid rgba(255,255,255,.28);
+  backdrop-filter:blur(12px) saturate(130%) brightness(107%);
+  -webkit-backdrop-filter:blur(12px) saturate(130%) brightness(107%);
+  box-shadow:
+    0 1.5px 0 rgba(255,255,255,.75) inset,
+    0 -1px 0 rgba(255,255,255,.06) inset,
+    0 4px 16px rgba(0,0,0,.08);
+  overflow:hidden;
 }
-@keyframes ambientPulse{0%,100%{opacity:.6;}50%{opacity:1;}}
+body.theme-lgdark .note::after,body.theme-lglight .note::after{
+  content:"";
+  position:absolute;top:0;left:8%;right:8%;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.85) 40%,rgba(255,255,255,.90) 60%,transparent);
+  pointer-events:none;
+}
+body.theme-lgdark .note::before,body.theme-lglight .note::before{
+  content:"";
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse 70% 50% at 30% 20%,rgba(255,255,255,.10) 0%,transparent 100%);
+  pointer-events:none;border-radius:inherit;
+}
+body.theme-lgdark .note.note2,body.theme-lglight .note.note2{background:var(--note2);}
+body.theme-lgdark .note.note3,body.theme-lglight .note.note3{background:var(--note3);}
+body.theme-lgdark .note.note4,body.theme-lglight .note.note4{background:var(--note4);}
+
+/* LG button specular */
+body.theme-lgdark .btn,body.theme-lglight .btn{
+  box-shadow:0 1.5px 0 rgba(255,255,255,.45) inset,0 -1px 0 rgba(0,0,0,.12) inset,0 4px 14px rgba(0,0,0,.18);
+}
+body.theme-lgdark .btn-secondary,body.theme-lglight .btn-secondary{
+  background:linear-gradient(165deg,rgba(255,255,255,.22) 0%,rgba(255,255,255,.06) 50%),var(--bg-tertiary);
+}
+
+/* LG phone zone glass */
+body.theme-lgdark .phone-zone,body.theme-lglight .phone-zone{
+  box-shadow:0 2.5px 0 var(--glass-highlight) inset,0 -1px 0 rgba(0,0,0,.12) inset,0 0 0 1px var(--glass-border) inset,0 16px 48px var(--shadow);
+}
+
+/* ===== LG LAYOUT: notes column left, main content right ===== */
+/* iOS16 layout (default): notes on top, panels below — single col left + phone right */
+/* LG layout: 3-col grid: [notes-col | main-content | phone-zone] */
+
+/* LG outer grid: notes-col | content | phone — giống iOS16 layout */
+body.theme-lgdark .mat-layout,
+body.theme-lglight .mat-layout{
+  grid-template-columns: 200px 1fr 200px;
+  gap: 16px;
+  align-items: start; /* phone col aligns top */
+}
+
+/* LG mat-left becomes the main content area (timer + file + music) */
+body.theme-lgdark .mat-left,
+body.theme-lglight .mat-left{
+  gap: 14px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto auto;
+}
+
+/* LG: hide notes from mat-left (they go to notes-col via absolute/clone) */
+/* We use a separate notes column element injected by JS */
+.lg-notes-col{
+  display: none;
+  flex-direction: column;
+  gap: 8px;
+}
+body.theme-lgdark .lg-notes-col,
+body.theme-lglight .lg-notes-col{
+  display: flex;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* LG: hide top-row (notes) from mat-left — shown in lg-notes-col */
+body.theme-lgdark .top-row,
+body.theme-lglight .top-row{
+  display: none;
+}
+
+/* LG panels row: timer + clock merge into one visual panel, quote removed */
+body.theme-lgdark .bottom-row,
+body.theme-lglight .bottom-row{
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+body.theme-lgdark .panel-quote,
+body.theme-lglight .panel-quote{
+  display: none;
+}
+body.theme-lgdark .panel-timer,
+body.theme-lglight .panel-timer{
+  border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+  border-right-color: transparent;
+}
+body.theme-lgdark .panel-clock,
+body.theme-lglight .panel-clock{
+  border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+  border-left: 1px solid var(--separator);
+  margin-left: -1px;
+}
+
+/* LG wide panels: files + music */
+body.theme-lgdark .wide-panels-row,
+body.theme-lglight .wide-panels-row{
+  gap: 12px;
+}
+
+/* LG phone zone: portrait dọc, bo góc nhiều hơn iOS16, glass */
+body.theme-lgdark .phone-zone,
+body.theme-lglight .phone-zone{
+  aspect-ratio: 9/19;
+  width: 100%;
+  border-radius: 48px;
+  border-width: 1.5px;
+  padding: 28px 10px 16px;
+  align-self: start;
+}
+
+/* LG note card in side column: horizontal compact style */
+.lg-note-card{
+  background:var(--note1);
+  border:var(--panel-border-w) solid var(--note1-border);
+  border-radius:var(--radius-md);
+  padding:12px 14px 10px;
+  position:relative;
+  cursor:pointer;
+  box-shadow:
+    0 1.5px 0 var(--glass-top) inset,
+    0 -1px 0 rgba(0,0,0,.06) inset,
+    0 4px 14px var(--shadow);
+  transition:box-shadow .2s,transform .15s var(--ease-spring);
+  user-select:none;
+  flex:1 1 0;
+  min-height:0;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.lg-note-card.note2{background:var(--note2);border-color:var(--note2-border);}
+.lg-note-card.note3{background:var(--note3);border-color:var(--note3-border);}
+.lg-note-card.note4{background:var(--note4);border-color:var(--note4-border);}
+.lg-note-card{
+  background:var(--note1);
+  border:1px solid rgba(255,255,255,.28);
+  box-shadow:
+    0 1.5px 0 rgba(255,255,255,.75) inset,
+    0 4px 16px rgba(0,0,0,.08);
+  overflow:hidden;
+}
+.lg-note-card::after{
+  content:"";
+  position:absolute;top:0;left:8%;right:8%;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.85) 40%,rgba(255,255,255,.90) 60%,transparent);
+  pointer-events:none;
+}
+.lg-note-card::before{
+  content:"";
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse 70% 50% at 30% 20%,rgba(255,255,255,.10) 0%,transparent 100%);
+  pointer-events:none;border-radius:inherit;
+}
+.lg-note-card.note2{background:var(--note2);}
+.lg-note-card.note3{background:var(--note3);}
+.lg-note-card.note4{background:var(--note4);}
+.lg-note-card:hover{transform:translateY(-2px) scale(1.01);}
+.lg-note-card:active{transform:scale(.96);}
+.lg-note-card .lg-note-num{font-size:10px;font-weight:700;color:var(--text-tertiary);margin-bottom:3px;}
+.lg-note-card .lg-note-led{
+  position:absolute;top:10px;right:10px;
+  width:7px;height:7px;border-radius:50%;background:var(--text-tertiary);
+}
+.lg-note-card.done .lg-note-led{background:var(--accent2);box-shadow:0 0 6px var(--accent2);}
+.lg-note-card.overdue .lg-note-led{background:var(--accent3);box-shadow:0 0 6px var(--accent3);animation:pulse .9s infinite;}
+.lg-note-card h4{font-size:13px;font-weight:700;color:var(--text-primary);margin:0 0 2px;letter-spacing:-.2px;}
+.lg-note-card p{font-size:11px;color:var(--text-secondary);margin:0 0 6px;}
+
+.lg-note-card.done{opacity:.5;filter:saturate(.3);}
+.lg-note-card.active-task{
+  box-shadow:0 0 0 2px var(--accent3),0 4px 20px rgba(255,69,58,.3),0 1.5px 0 var(--glass-top) inset;
+  animation:activeTaskPulse 1.4s ease-in-out infinite;
+}
+.lg-note-card.active-task .lg-note-led{background:var(--accent3);box-shadow:0 0 8px var(--accent3);animation:pulse .7s infinite;}
+.lg-note-card .lg-note-meta{display:flex;gap:5px;flex-wrap:wrap;margin-top:4px;}
+.lg-note-card .lg-note-meta span{
+  font-size:10px;padding:2px 7px;border-radius:var(--radius-xs);
+  background:rgba(255,255,255,.12);color:var(--text-secondary);
+  outline:none;min-width:20px;
+}
+
+/* LG note card delete button */
+.lg-note-del{
+  position:absolute;top:8px;right:8px;background:rgba(0,0,0,.2);border:none;
+  color:rgba(255,255,255,.6);width:18px;height:18px;border-radius:50%;font-size:9px;
+  cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;
+  opacity:0;transition:opacity .15s,transform .15s;z-index:10;
+}
+.lg-note-card:hover .lg-note-del{opacity:1;}
+.lg-note-del:hover{transform:scale(1.15);}
+
+/* Transition blocker during morph */
+body.is-transitioning{pointer-events:none;}
 
 /* ===== GLASS MIXIN helper ===== */
 .glass-panel{
@@ -343,6 +559,37 @@ body.theme-lgdark::after,body.theme-lglight::after{
   backdrop-filter:blur(var(--glass-blur-lg)) saturate(var(--glass-sat));
   -webkit-backdrop-filter:blur(var(--glass-blur-lg)) saturate(var(--glass-sat));
   box-shadow:0 1px 0 var(--glass-highlight) inset,0 0 0 .5px var(--glass-border) inset,0 16px 48px var(--shadow);
+}
+
+/* True liquid glass specular for LG themes */
+body.theme-lgdark .glass-panel,body.theme-lgdark .glass-panel-lg,
+body.theme-lglight .glass-panel,body.theme-lglight .glass-panel-lg{
+  background:transparent;
+  border:1px solid rgba(255,255,255,.28);
+  backdrop-filter:blur(var(--glass-blur)) saturate(var(--glass-sat)) brightness(var(--glass-bright));
+  -webkit-backdrop-filter:blur(var(--glass-blur)) saturate(var(--glass-sat)) brightness(var(--glass-bright));
+  box-shadow:
+    0 1.5px 0 rgba(255,255,255,.75) inset,
+    0 -1px 0 rgba(255,255,255,.08) inset,
+    0 4px 20px rgba(0,0,0,.08);
+  overflow:hidden;
+}
+body.theme-lgdark .glass-panel::after,body.theme-lgdark .glass-panel-lg::after,
+body.theme-lglight .glass-panel::after,body.theme-lglight .glass-panel-lg::after{
+  content:"";
+  position:absolute;top:0;left:5%;right:5%;height:1.5px;
+  background:linear-gradient(90deg,transparent 0%,rgba(255,255,255,.90) 30%,rgba(255,255,255,.95) 50%,rgba(255,255,255,.90) 70%,transparent 100%);
+  border-radius:0 0 50% 50%;
+  pointer-events:none;
+}
+body.theme-lgdark .glass-panel::before,body.theme-lgdark .glass-panel-lg::before,
+body.theme-lglight .glass-panel::before,body.theme-lglight .glass-panel-lg::before{
+  content:"";
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 55% 35% at 25% 18%,rgba(255,255,255,.13) 0%,transparent 100%),
+    radial-gradient(ellipse 30% 20% at 75% 65%,rgba(255,255,255,.06) 0%,transparent 100%);
+  pointer-events:none;border-radius:inherit;
 }
 
 /* ===== HEADER ===== */
@@ -386,16 +633,39 @@ body.theme-lgdark .app-title,body.theme-lglight .app-title{font-weight:800;lette
   max-width:1400px;
   margin:0 auto;
   position:relative;
+  contain:layout style;
   transition:background .4s,border-color .4s,box-shadow .4s,border-radius .4s var(--ease-smooth);
 }
 body.theme-lgdark .mat,body.theme-lglight .mat{
-  background:
-    linear-gradient(155deg,rgba(255,255,255,.16) 0%,rgba(255,255,255,.03) 28%,rgba(255,255,255,0) 55%),
-    var(--glass);
-  border:1.5px solid var(--glass-border);
+  background:transparent;
+  border:1px solid rgba(255,255,255,.28);
   backdrop-filter:blur(var(--glass-blur-lg)) saturate(var(--glass-sat));
   -webkit-backdrop-filter:blur(var(--glass-blur-lg)) saturate(var(--glass-sat));
-  box-shadow:0 1.5px 0 var(--glass-highlight) inset,0 -1px 0 rgba(0,0,0,.12) inset,var(--mat-shadow);
+  box-shadow:
+    0 1.5px 0 rgba(255,255,255,.75) inset,
+    0 -1px 0 rgba(255,255,255,.06) inset,
+    1px 0 0 rgba(255,255,255,.06) inset,
+    -1px 0 0 rgba(255,255,255,.06) inset,
+    0 8px 24px rgba(0,0,0,.10),
+    var(--mat-shadow);
+  overflow:hidden;
+}
+body.theme-lgdark .mat::after,body.theme-lglight .mat::after{
+  content:"";
+  position:absolute;top:0;left:3%;right:3%;height:1.5px;
+  background:linear-gradient(90deg,transparent 0%,rgba(255,255,255,.88) 25%,rgba(255,255,255,.95) 50%,rgba(255,255,255,.88) 75%,transparent 100%);
+  border-radius:0 0 60% 60%;
+  pointer-events:none;z-index:1;
+}
+/* Mat caustic — vệt sáng khúc xạ lớn hơn vì container rộng */
+body.theme-lgdark .mat::before,body.theme-lglight .mat::before{
+  content:"";
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 45% 28% at 20% 12%,rgba(255,255,255,.11) 0%,transparent 100%),
+    radial-gradient(ellipse 25% 18% at 80% 72%,rgba(255,255,255,.05) 0%,transparent 100%),
+    radial-gradient(ellipse 35% 22% at 60% 30%,rgba(255,255,255,.04) 0%,transparent 100%);
+  pointer-events:none;border-radius:inherit;z-index:0;
 }
 body.theme-ios16light .mat{
   background:rgba(255,255,255,.7);
@@ -423,6 +693,10 @@ body.theme-ios16light .mat{
 .note3{background:var(--note3);border-color:var(--note3-border);}
 .note4{background:var(--note4);border-color:var(--note4-border);}
 .note:hover{transform:translateY(-3px) rotate(0deg) scale(1.015);box-shadow:0 1px 0 rgba(255,255,255,.1) inset,0 10px 28px var(--shadow);}
+/* GPU hint for hover-animated elements — only on interactive elements, not backdrop-filter layers */
+.note{will-change:transform;}
+.panel{will-change:transform;}
+.lg-note-card{will-change:transform;}
 .note:active{transform:scale(.96);}
 .note.done{opacity:.5;filter:saturate(.3);}
 .note.active-task{
@@ -483,9 +757,38 @@ body.theme-ios16light .note .note-meta input{background:rgba(0,0,0,.06);}
   box-shadow:0 1px 0 var(--glass-highlight) inset,0 4px 16px var(--shadow);
   transition:border-radius .4s var(--ease-smooth),transform .2s var(--ease-spring),box-shadow .2s;
   position:relative;overflow:hidden;
+  contain:layout style paint;
 }
 body.theme-lgdark .panel,body.theme-lglight .panel{
-  background:linear-gradient(160deg,rgba(255,255,255,.18) 0%,rgba(255,255,255,.02) 35%,rgba(255,255,255,0) 60%),var(--panel-bg);
+  background:transparent;
+  border:1px solid rgba(255,255,255,.28);
+  backdrop-filter:blur(var(--glass-blur)) saturate(var(--glass-sat)) brightness(var(--glass-bright));
+  -webkit-backdrop-filter:blur(var(--glass-blur)) saturate(var(--glass-sat)) brightness(var(--glass-bright));
+  box-shadow:
+    0 1.5px 0 rgba(255,255,255,.75) inset,
+    0 -1px 0 rgba(255,255,255,.08) inset,
+    1px 0 0 rgba(255,255,255,.08) inset,
+    -1px 0 0 rgba(255,255,255,.08) inset,
+    0 4px 20px rgba(0,0,0,.08);
+  overflow:hidden;
+}
+/* Specular arc — đường sáng cong mỏng ở cạnh trên, như mặt kính cong */
+/* Specular arc top edge */
+body.theme-lgdark .panel::after,body.theme-lglight .panel::after{
+  content:"";
+  position:absolute;top:0;left:5%;right:5%;height:1.5px;
+  background:linear-gradient(90deg,transparent 0%,rgba(255,255,255,.90) 30%,rgba(255,255,255,.95) 50%,rgba(255,255,255,.90) 70%,transparent 100%);
+  border-radius:0 0 50% 50%;
+  pointer-events:none;
+}
+/* Caustic refraction — vệt sáng khúc xạ lệch, giả lập ánh sáng bị bẻ qua kính */
+body.theme-lgdark .panel::before,body.theme-lglight .panel::before{
+  content:"";
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 55% 35% at 25% 18%,rgba(255,255,255,.13) 0%,transparent 100%),
+    radial-gradient(ellipse 30% 20% at 75% 65%,rgba(255,255,255,.06) 0%,transparent 100%);
+  pointer-events:none;border-radius:inherit;
 }
 .panel:hover{transform:translateY(-2px);}
 .panel-label{
@@ -535,6 +838,7 @@ body.theme-lglight .clock-face-round{display:block;}
   font-size:34px;font-weight:300;letter-spacing:-2px;color:var(--text-primary);
   text-align:center;margin:4px 0;font-feature-settings:"tnum";
 }
+body.theme-lgdark #timerDisplay,body.theme-lglight #timerDisplay{font-weight:600;}
 .wheel-picker-wrap{
   position:relative;height:44px;overflow:hidden;margin:4px auto;width:72px;cursor:ns-resize;
 }
@@ -549,45 +853,85 @@ body.theme-lglight .clock-face-round{display:block;}
 .wheel-picker-line{position:absolute;left:4px;right:4px;top:50%;height:1px;background:var(--separator);margin-top:-0.5px;z-index:1;}
 .picker-unit{font-size:10px;color:var(--text-tertiary);text-align:center;margin-bottom:6px;}
 
-/* ===== BUTTONS — iOS style ===== */
+/* ===== BUTTONS — iOS style / Liquid Glass pill style ===== */
+/* Perf note: hover/active effects use only transform + opacity (GPU-cheap,
+   no layout/paint thrash). The glossy highlight on LG buttons is a static
+   gradient — it does not animate on its own, only fades in on :hover. */
 .btn{
   display:inline-flex;align-items:center;justify-content:center;gap:5px;
   background:var(--accent);color:#ffffff;
-  border:none;border-radius:20px;padding:9px 18px;
+  border:none;border-radius:var(--btn-shape);padding:9px 18px;
   font-family:inherit;font-size:13px;font-weight:600;letter-spacing:-.1px;
-  cursor:pointer;
-  transition:transform .12s cubic-bezier(.34,1.56,.64,1),opacity .1s,filter .1s;
+  cursor:pointer;position:relative;overflow:hidden;isolation:isolate;
+  transition:transform .12s var(--ease-spring),opacity .1s,filter .1s,border-radius .4s var(--ease-smooth);
   -webkit-tap-highlight-color:transparent;
 }
+.btn::before{
+  content:'';position:absolute;inset:0;border-radius:inherit;
+  background:linear-gradient(155deg,rgba(255,255,255,.35) 0%,rgba(255,255,255,0) 50%);
+  opacity:0;transition:opacity .2s;pointer-events:none;
+}
+body.theme-lgdark .btn::before,body.theme-lglight .btn::before{opacity:.55;}
+.btn:hover::before{opacity:.8;}
 .btn:active{transform:scale(.94);opacity:.85;}
-.btn:hover{filter:brightness(1.1);}
+.btn:hover{filter:brightness(1.08);}
 .btn-secondary{background:var(--bg-tertiary);color:var(--text-primary);}
 .btn-danger{background:rgba(255,69,58,.2);color:var(--accent3);border:1px solid rgba(255,69,58,.25);}
 .btn-focus{
   background:linear-gradient(135deg,rgba(255,159,10,.25),rgba(255,159,10,.15));
   color:var(--accent4);border:1px solid rgba(255,159,10,.3);
 }
-.btn-sm{padding:7px 14px;font-size:12px;border-radius:16px;}
-.btn-xs{padding:5px 10px;font-size:11px;border-radius:12px;}
+.btn-sm{padding:7px 14px;font-size:12px;border-radius:calc(var(--btn-shape) * .8 + 4px);}
+.btn-xs{padding:5px 10px;font-size:11px;border-radius:calc(var(--btn-shape) * .6 + 4px);}
 .btn-full{width:100%;}
 .btns-row{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;}
 
 /* ===== QUOTE PANEL ===== */
 .quote-text{font-size:12px;color:var(--text-secondary);line-height:1.5;font-style:italic;}
+body.theme-lgdark .quote-text,body.theme-lglight .quote-text{font-style:normal;font-weight:500;}
 
 /* ===== WIDE PANELS ===== */
 .wide-panels-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
 .wide-panel{
   background:var(--panel-bg);
-  border:1px solid var(--glass-border);
-  border-radius:20px;padding:16px;
-  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border:var(--panel-border-w) solid var(--glass-border);
+  border-radius:var(--radius-lg);padding:16px;
+  backdrop-filter:blur(var(--glass-blur));-webkit-backdrop-filter:blur(var(--glass-blur));
   box-shadow:0 1px 0 var(--glass-highlight) inset,0 4px 16px var(--shadow);
+  transition:border-radius .4s var(--ease-smooth);
+}
+body.theme-lgdark .wide-panel,body.theme-lglight .wide-panel{
+  background:transparent;
+  border:1px solid rgba(255,255,255,.28);
+  backdrop-filter:blur(var(--glass-blur)) saturate(var(--glass-sat)) brightness(var(--glass-bright));
+  -webkit-backdrop-filter:blur(var(--glass-blur)) saturate(var(--glass-sat)) brightness(var(--glass-bright));
+  box-shadow:
+    0 1.5px 0 rgba(255,255,255,.75) inset,
+    0 -1px 0 rgba(255,255,255,.08) inset,
+    1px 0 0 rgba(255,255,255,.08) inset,
+    -1px 0 0 rgba(255,255,255,.08) inset,
+    0 4px 20px rgba(0,0,0,.08);
+  overflow:hidden;
+}
+body.theme-lgdark .wide-panel::after,body.theme-lglight .wide-panel::after{
+  content:"";
+  position:absolute;top:0;left:5%;right:5%;height:1.5px;
+  background:linear-gradient(90deg,transparent 0%,rgba(255,255,255,.90) 30%,rgba(255,255,255,.95) 50%,rgba(255,255,255,.90) 70%,transparent 100%);
+  border-radius:0 0 50% 50%;
+  pointer-events:none;
+}
+body.theme-lgdark .wide-panel::before,body.theme-lglight .wide-panel::before{
+  content:"";
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 55% 35% at 25% 18%,rgba(255,255,255,.13) 0%,transparent 100%),
+    radial-gradient(ellipse 30% 20% at 75% 65%,rgba(255,255,255,.06) 0%,transparent 100%);
+  pointer-events:none;border-radius:inherit;
 }
 
 /* Files */
 .dropzone{
-  border:1.5px dashed var(--separator);border-radius:14px;
+  border:1.5px dashed var(--separator);border-radius:var(--radius-sm);
   padding:18px 12px;text-align:center;cursor:pointer;
   font-size:12px;font-weight:500;color:var(--text-tertiary);
   transition:border-color .2s,background .2s;
@@ -595,10 +939,10 @@ body.theme-lglight .clock-face-round{display:block;}
 .dropzone:hover,.dropzone.dragover{border-color:var(--accent);background:rgba(10,132,255,.06);}
 .file-tab-bar{
   display:flex;gap:3px;background:var(--bg-tertiary);
-  border-radius:12px;padding:3px;margin-bottom:10px;
+  border-radius:var(--radius-sm);padding:3px;margin-bottom:10px;
 }
 .file-tab{
-  flex:1;padding:6px 8px;border:none;border-radius:10px;
+  flex:1;padding:6px 8px;border:none;border-radius:var(--radius-xs);
   font-size:11px;font-weight:600;cursor:pointer;
   background:transparent;color:var(--text-tertiary);
   font-family:inherit;transition:background .15s,color .15s;
@@ -610,13 +954,13 @@ body.theme-lglight .clock-face-round{display:block;}
 .file-drop-panel.visible{display:block;}
 .file-text-input{
   width:100%;background:var(--bg-tertiary);border:1px solid var(--glass-border);
-  border-radius:12px;color:var(--text-primary);padding:10px 12px;
+  border-radius:var(--radius-sm);color:var(--text-primary);padding:10px 12px;
   font-family:inherit;font-size:13px;resize:none;margin-bottom:8px;outline:none;
 }
 .file-text-input:focus{border-color:var(--accent);}
 .file-row{
   display:flex;align-items:center;justify-content:space-between;gap:8px;
-  background:var(--bg-tertiary);border-radius:12px;padding:10px 12px;
+  background:var(--bg-tertiary);border-radius:var(--radius-sm);padding:10px 12px;
   margin-top:8px;font-size:12px;flex-wrap:wrap;
   border:1px solid var(--glass-border);
 }
@@ -624,8 +968,8 @@ body.theme-lglight .clock-face-round{display:block;}
 .file-row .fdeadline{color:var(--accent4);font-size:10px;}
 
 /* Music */
-.music-tab-bar{display:flex;gap:3px;background:var(--bg-tertiary);border-radius:12px;padding:3px;margin-bottom:10px;}
-.music-tab{flex:1;padding:6px 8px;border:none;border-radius:10px;font-size:11px;font-weight:600;cursor:pointer;background:transparent;color:var(--text-tertiary);font-family:inherit;transition:background .15s,color .15s;}
+.music-tab-bar{display:flex;gap:3px;background:var(--bg-tertiary);border-radius:var(--radius-sm);padding:3px;margin-bottom:10px;}
+.music-tab{flex:1;padding:6px 8px;border:none;border-radius:var(--radius-xs);font-size:11px;font-weight:600;cursor:pointer;background:transparent;color:var(--text-tertiary);font-family:inherit;transition:background .15s,color .15s;}
 .music-tab.active{background:var(--surface-elevated);color:var(--text-primary);}
 #trackTitle{font-size:12px;margin:4px 0 8px;color:var(--accent4);font-weight:500;}
 .music-controls{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
@@ -642,19 +986,19 @@ input[type=range]::-webkit-slider-thumb{
 .yt-row{display:flex;gap:6px;margin-bottom:8px;}
 .yt-input{
   flex:1;padding:8px 10px;background:var(--bg-tertiary);border:1px solid var(--glass-border);
-  border-radius:12px;color:var(--text-primary);font-size:11px;font-family:inherit;outline:none;
+  border-radius:var(--radius-sm);color:var(--text-primary);font-size:11px;font-family:inherit;outline:none;
 }
 .yt-input:focus{border-color:var(--accent);}
-#ytContainer{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;background:#000;margin-top:6px;}
+#ytContainer{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:var(--radius-sm);background:#000;margin-top:6px;}
 #ytContainer iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;}
 #localMusicPanel,#ytMusicPanel,#scMusicPanel{display:none;}
 #localMusicPanel.visible,#ytMusicPanel.visible,#scMusicPanel.visible{display:block;}
-#scContainer{margin-top:6px;border-radius:12px;overflow:hidden;}
+#scContainer{margin-top:6px;border-radius:var(--radius-sm);overflow:hidden;}
 
-/* ===== PHONE ZONE — 9:19 ratio ===== */
+/* ===== PHONE ZONE ===== */
 .phone-zone{
   width:100%;
-  aspect-ratio:9/19;
+  aspect-ratio:19/11;
   border-radius:36px;
   border:1.5px solid var(--phone-border);
   background:var(--phone-bg);
@@ -667,14 +1011,53 @@ input[type=range]::-webkit-slider-thumb{
   cursor:pointer;
   position:relative;
   overflow:hidden;
-  transition:box-shadow .3s,border-color .3s;
+  transition:box-shadow .3s,border-color .3s,border-radius .4s var(--ease-smooth);
   box-shadow:0 0 0 3px rgba(255,255,255,.03),0 8px 32px var(--shadow);
+}
+/* iOS 16: classic iPhone frame — thicker bezel, smaller pill island */
+body.theme-ios16light .phone-zone,
+body:not(.theme-ios16light):not(.theme-lgdark):not(.theme-lglight) .phone-zone{
+  border-radius:34px;border-width:2px;
+}
+/* Liquid Glass: same iPhone frame shape as iOS16, glass background only */
+body.theme-lgdark .phone-zone,body.theme-lglight .phone-zone{
+  border-radius:34px;border-width:0;
+  background:transparent;
+  backdrop-filter:blur(var(--glass-blur)) saturate(var(--glass-sat));
+  -webkit-backdrop-filter:blur(var(--glass-blur)) saturate(var(--glass-sat));
+  border:1px solid rgba(255,255,255,.28);
+  box-shadow:
+    0 1.5px 0 rgba(255,255,255,.80) inset,
+    0 -1.5px 0 rgba(255,255,255,.18) inset,
+    1.5px 0 0 rgba(255,255,255,.12) inset,
+    -1.5px 0 0 rgba(255,255,255,.12) inset,
+    0 8px 24px rgba(0,0,0,.10);
+  overflow:hidden;
+}
+body.theme-lgdark .phone-zone::after,body.theme-lglight .phone-zone::after{
+  content:"";
+  position:absolute;top:0;left:8%;right:8%;height:2px;
+  background:linear-gradient(90deg,transparent 0%,rgba(255,255,255,.92) 25%,rgba(255,255,255,.98) 50%,rgba(255,255,255,.92) 75%,transparent 100%);
+  border-radius:0 0 60% 60%;
+  pointer-events:none;
+}
+/* Phone zone caustic: lồi dọc như ống kính */
+body.theme-lgdark .phone-zone::before,body.theme-lglight .phone-zone::before{
+  content:"";
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 60% 80% at 30% 35%,rgba(255,255,255,.12) 0%,transparent 100%),
+    radial-gradient(ellipse 40% 60% at 70% 65%,rgba(255,255,255,.05) 0%,transparent 100%);
+  pointer-events:none;border-radius:inherit;
 }
 /* Dynamic Island */
 .phone-zone::before{
   content:'';position:absolute;top:10px;left:50%;transform:translateX(-50%);
   width:30px;height:9px;background:#000;border-radius:100px;
   box-shadow:0 0 0 1px rgba(255,255,255,.06);z-index:2;
+}
+body.theme-lgdark .phone-zone::before,body.theme-lglight .phone-zone::before{
+  width:34px;height:10px;
 }
 /* Side button */
 .phone-zone::after{
@@ -693,7 +1076,7 @@ body.theme-ios16light .phone-zone::after{background:rgba(0,0,0,.15);}
 }
 .phone-icon{font-size:32px;margin:12px 0 6px;}
 #phoneLabel{font-size:11px;color:var(--text-tertiary);line-height:1.6;}
-#qrImg{border-radius:10px;margin:8px auto 4px;display:block;background:#fff;border:2px solid rgba(255,255,255,.15);}
+#qrImg{border-radius:var(--radius-xs);margin:8px auto 4px;display:block;background:#fff;border:2px solid rgba(255,255,255,.15);}
 #qrStatus{font-size:9px;color:var(--text-tertiary);margin-top:4px;line-height:1.4;padding:0 6px;}
 #phoneConnStatus{
   font-size:10px;font-weight:600;margin-top:6px;padding:4px 12px;border-radius:100px;
@@ -714,7 +1097,7 @@ body.theme-ios16light .phone-zone::after{background:rgba(0,0,0,.15);}
 /* ===== FOCUS MODE PRO ===== */
 #focusOverlay{
   display:none;position:fixed;inset:0;z-index:200;
-  background:rgba(0,0,0,.92);backdrop-filter:blur(40px);-webkit-backdrop-filter:blur(40px);
+  background:rgba(0,0,0,.92);backdrop-filter:blur(26px);-webkit-backdrop-filter:blur(26px);
   flex-direction:column;align-items:center;justify-content:center;color:#fff;text-align:center;
   font-family:inherit;
 }
@@ -785,6 +1168,11 @@ body.theme-ios16light .phone-zone::after{background:rgba(0,0,0,.15);}
 /* ===== SYSTEM BODY ===== */
 #systemBody{transition:opacity .35s ease,filter .35s ease;}
 #systemBody.system-off{opacity:.2;filter:grayscale(.8) brightness(.5);pointer-events:none;}
+/* Pause backdrop-filter cost when system is off */
+#systemBody.system-off .panel,#systemBody.system-off .wide-panel,
+#systemBody.system-off .phone-zone,#systemBody.system-off .mat{
+  backdrop-filter:none;-webkit-backdrop-filter:none;
+}
 #systemBody.system-on{opacity:1;filter:none;pointer-events:auto;}
 .power-overlay{
   position:absolute;top:16px;left:16px;right:16px;bottom:50px;
@@ -810,7 +1198,7 @@ body.theme-ios16light .phone-zone::after{background:rgba(0,0,0,.15);}
 .settings-drawer{
   position:fixed;top:0;right:0;bottom:0;width:280px;max-width:85vw;
   background:var(--glass);border-left:1px solid var(--glass-border);
-  backdrop-filter:blur(40px);-webkit-backdrop-filter:blur(40px);
+  backdrop-filter:blur(26px);-webkit-backdrop-filter:blur(26px);
   transform:translateX(100%);transition:transform .3s cubic-bezier(.4,0,.2,1);
   z-index:60;padding:60px 18px 18px;overflow-y:auto;color:var(--text-primary);
 }
@@ -819,7 +1207,7 @@ body.theme-ios16light .phone-zone::after{background:rgba(0,0,0,.15);}
 .settings-drawer label{display:block;font-size:11px;font-weight:600;color:var(--text-tertiary);letter-spacing:.5px;text-transform:uppercase;margin:14px 0 5px;}
 .settings-drawer select,.settings-drawer input[type=number]{
   width:100%;padding:8px 10px;font-family:inherit;
-  border:1px solid var(--glass-border);border-radius:10px;
+  border:1px solid var(--glass-border);border-radius:var(--radius-xs);
   background:var(--bg-tertiary);color:var(--text-primary);font-size:13px;outline:none;
 }
 .overlay{position:fixed;inset:0;background:rgba(0,0,0,.4);opacity:0;pointer-events:none;transition:.25s;z-index:55;}
@@ -835,8 +1223,8 @@ body.theme-ios16light .phone-zone::after{background:rgba(0,0,0,.15);}
 .file-popup-overlay.show{opacity:1;pointer-events:auto;}
 .file-popup{
   background:var(--glass);border:1px solid var(--glass-border);
-  backdrop-filter:blur(40px);-webkit-backdrop-filter:blur(40px);
-  border-radius:24px 24px 0 0;padding:20px 20px 36px;
+  backdrop-filter:blur(26px);-webkit-backdrop-filter:blur(26px);
+  border-radius:var(--radius-xl) var(--radius-xl) 0 0;padding:20px 20px 36px;
   width:100%;max-width:480px;
   transform:translateY(30px);transition:transform .25s;
 }
@@ -847,16 +1235,18 @@ body.theme-ios16light .phone-zone::after{background:rgba(0,0,0,.15);}
 .file-popup label{display:block;font-size:10px;font-weight:600;color:var(--text-tertiary);letter-spacing:.5px;text-transform:uppercase;margin-bottom:5px;}
 .file-popup input[type=datetime-local],.file-popup textarea{
   width:100%;background:var(--bg-tertiary);border:1px solid var(--glass-border);
-  border-radius:12px;color:var(--text-primary);padding:10px 12px;
+  border-radius:var(--radius-sm);color:var(--text-primary);padding:10px 12px;
   font-family:inherit;font-size:14px;margin-bottom:12px;outline:none;
 }
 .file-popup input[type=datetime-local]:focus,.file-popup textarea:focus{border-color:var(--accent);}
 .file-popup textarea{resize:none;font-size:13px;}
 .file-popup-actions{display:flex;gap:8px;margin-top:4px;}
-.fp-cancel{flex:1;background:var(--bg-tertiary);color:var(--text-primary);border:none;padding:14px;border-radius:14px;font-size:15px;font-weight:600;cursor:pointer;font-family:inherit;}
-.fp-confirm{flex:2;background:var(--accent);color:#fff;border:none;padding:14px;border-radius:14px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;}
+.fp-cancel{flex:1;background:var(--bg-tertiary);color:var(--text-primary);border:none;padding:14px;border-radius:var(--btn-shape);font-size:15px;font-weight:600;cursor:pointer;font-family:inherit;transition:transform .12s var(--ease-spring),opacity .1s;}
+.fp-confirm{flex:2;background:var(--accent);color:#fff;border:none;padding:14px;border-radius:var(--btn-shape);font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;transition:transform .12s var(--ease-spring),opacity .1s;}
+.fp-cancel:active,.fp-confirm:active{transform:scale(.96);opacity:.85;}
 
-/* ===== REMOTE VIEW ===== */
+/* ===== REMOTE VIEW — shares the exact same theme tokens as Desk Mat,
+   so switching theme here also restyles shape/font/glass identically ===== */
 body.remote-mode>.app-header,
 body.remote-mode>.theme-bar,
 body.remote-mode>.mat,
@@ -867,46 +1257,62 @@ body.remote-mode .settings-toggle{display:none!important;}
 body.remote-mode #remoteView{display:block;max-width:480px;margin:0 auto;}
 #remoteView .rm-header{text-align:center;margin-bottom:16px;}
 #remoteView .rm-header h1{font-size:22px;font-weight:700;color:var(--text-primary);letter-spacing:-.5px;}
+body.theme-lgdark #remoteView .rm-header h1,
+body.theme-lglight #remoteView .rm-header h1{font-weight:800;letter-spacing:-.3px;}
 #remoteView .rm-header p{font-size:12px;color:var(--text-secondary);margin-top:2px;}
-#rmConnStatus{text-align:center;font-size:12px;padding:10px;border-radius:14px;margin-bottom:12px;background:var(--bg-tertiary);color:var(--text-secondary);}
+#rmConnStatus{text-align:center;font-size:12px;padding:10px;border-radius:var(--radius-sm);margin-bottom:12px;background:var(--bg-tertiary);color:var(--text-secondary);transition:border-radius .4s var(--ease-smooth);}
 #rmConnStatus.ok{background:rgba(48,209,88,.12);color:var(--accent2);}
 #rmConnStatus.err{background:rgba(255,69,58,.12);color:var(--accent3);}
 .rm-section{
-  background:var(--panel-bg);border:1px solid var(--glass-border);
-  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
-  border-radius:20px;padding:16px;margin-bottom:12px;
+  background:var(--panel-bg);border:var(--panel-border-w) solid var(--glass-border);
+  backdrop-filter:blur(var(--glass-blur));-webkit-backdrop-filter:blur(var(--glass-blur));
+  border-radius:var(--radius-lg);padding:16px;margin-bottom:12px;
   box-shadow:0 1px 0 var(--glass-highlight) inset,0 4px 16px var(--shadow);
+  transition:border-radius .4s var(--ease-smooth);
+}
+body.theme-lgdark .rm-section,body.theme-lglight .rm-section{
+  background:linear-gradient(160deg,rgba(255,255,255,.16) 0%,rgba(255,255,255,.02) 30%,rgba(255,255,255,0) 55%),var(--panel-bg);
 }
 .rm-section-label{font-size:10px;font-weight:600;color:var(--text-tertiary);letter-spacing:.8px;text-transform:uppercase;margin-bottom:12px;display:block;}
 #rmTimerDisplay{font-size:42px;font-weight:200;text-align:center;color:var(--text-primary);margin:6px 0;letter-spacing:-2px;font-feature-settings:"tnum";}
+body.theme-lgdark #rmTimerDisplay,body.theme-lglight #rmTimerDisplay{font-weight:600;}
 #rmCurrentTask{font-size:13px;color:var(--accent4);text-align:center;margin-bottom:6px;}
 #rmPhase{font-size:10px;color:var(--text-tertiary);text-align:center;letter-spacing:2px;margin-bottom:8px;}
 .rm-btn-row{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;}
 .rm-btn{
   background:var(--bg-tertiary);color:var(--text-primary);border:none;
-  padding:12px 14px;border-radius:16px;font-weight:700;cursor:pointer;
-  font-size:13px;flex:1;min-width:64px;font-family:inherit;
-  transition:transform .12s,opacity .1s;
+  padding:12px 14px;border-radius:var(--btn-shape);font-weight:700;cursor:pointer;
+  font-size:13px;flex:1;min-width:64px;font-family:inherit;position:relative;overflow:hidden;
+  transition:transform .12s var(--ease-spring),opacity .1s,border-radius .4s var(--ease-smooth);
 }
+.rm-btn::before{
+  content:'';position:absolute;inset:0;border-radius:inherit;
+  background:linear-gradient(155deg,rgba(255,255,255,.32) 0%,rgba(255,255,255,0) 50%);
+  opacity:0;pointer-events:none;transition:opacity .2s;
+}
+body.theme-lgdark .rm-btn::before,body.theme-lglight .rm-btn::before{opacity:.5;}
 .rm-btn:active{transform:scale(.92);opacity:.8;}
 .rm-btn.accent{background:var(--accent);color:#fff;}
 .rm-btn.green{background:rgba(48,209,88,.2);color:var(--accent2);}
 .rm-btn.red{background:rgba(255,69,58,.15);color:var(--accent3);}
 .rm-btn.gold{background:rgba(255,159,10,.15);color:var(--accent4);}
 .rm-tasks-list{display:flex;flex-direction:column;gap:6px;}
-.rm-task-item{display:flex;align-items:center;gap:10px;padding:10px 12px;background:var(--bg-tertiary);border-radius:12px;font-size:12px;border:1px solid var(--glass-border);}
+.rm-task-item{display:flex;align-items:center;gap:10px;padding:10px 12px;background:var(--bg-tertiary);border-radius:var(--radius-sm);font-size:12px;border:1px solid var(--glass-border);transition:border-radius .4s var(--ease-smooth);}
 .rm-task-item .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
 .rm-task-item.done{opacity:.4;}
-.rm-check-btn{margin-left:auto;background:rgba(48,209,88,.15);color:var(--accent2);border:none;padding:5px 12px;border-radius:10px;cursor:pointer;font-size:11px;font-family:inherit;}
+.rm-check-btn{margin-left:auto;background:rgba(48,209,88,.15);color:var(--accent2);border:none;padding:5px 12px;border-radius:var(--radius-xs);cursor:pointer;font-size:11px;font-family:inherit;transition:transform .12s var(--ease-spring);}
+.rm-check-btn:active{transform:scale(.92);}
 #rmThemes{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;}
-.rm-tsw{width:34px;height:34px;border-radius:50%;cursor:pointer;border:2px solid transparent;transition:transform .15s;position:relative;}
+.rm-tsw{width:34px;height:34px;border-radius:50%;cursor:pointer;border:2px solid transparent;transition:transform .15s var(--ease-spring);position:relative;}
 .rm-tsw::after{content:'';position:absolute;inset:-3px;border-radius:50%;border:2px solid transparent;transition:border-color .15s;}
 .rm-tsw.active::after{border-color:var(--text-primary);}
+.rm-tsw:hover{transform:scale(1.1) rotate(6deg);}
 .rm-tsw:active{transform:scale(.88);}
 #rmNoteInput,.rm-textarea{
   width:100%;background:var(--bg-tertiary);border:1px solid var(--glass-border);
-  border-radius:12px;color:var(--text-primary);padding:10px;
+  border-radius:var(--radius-sm);color:var(--text-primary);padding:10px;
   font-family:inherit;font-size:13px;resize:none;outline:none;
+  transition:border-color .2s,border-radius .4s var(--ease-smooth);
 }
 #rmNoteInput:focus,.rm-textarea:focus{border-color:var(--accent);}
 #rmProgressBar{height:4px;background:var(--bg-tertiary);border-radius:2px;margin-top:8px;overflow:hidden;}
@@ -916,8 +1322,8 @@ body.remote-mode #remoteView{display:block;max-width:480px;margin:0 auto;}
 .toast{
   position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(16px);
   background:var(--glass);border:1px solid var(--glass-border);
-  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
-  color:var(--text-primary);padding:10px 18px;border-radius:20px;
+  backdrop-filter:blur(var(--glass-blur));-webkit-backdrop-filter:blur(var(--glass-blur));
+  color:var(--text-primary);padding:10px 18px;border-radius:var(--btn-shape);
   font-size:13px;font-weight:500;opacity:0;transition:.3s;pointer-events:none;z-index:300;
   box-shadow:0 4px 20px var(--shadow);white-space:nowrap;
 }
@@ -930,18 +1336,43 @@ body.remote-mode #remoteView{display:block;max-width:480px;margin:0 auto;}
 [contenteditable="true"]:focus{background:rgba(255,255,255,.06);border-radius:4px;}
 *{-webkit-tap-highlight-color:transparent;}
 
+/* Respect OS-level reduced motion: freeze all decorative animation,
+   the strongest GPU-saving switch for users/devices that need it. */
+@media(prefers-reduced-motion:reduce){
+  body::before{animation:none!important;}
+  .note,.panel,.btn,.theme-swatch,.rm-tsw,.rm-btn{transition:none!important;}
+}
+
 /* ===== RESPONSIVE ===== */
+@media(max-width:1100px){
+  body.theme-lgdark .mat-layout,
+  body.theme-lglight .mat-layout{
+    grid-template-columns:180px 1fr;
+    grid-template-rows: auto auto;
+  }
+  body.theme-lgdark .phone-zone,
+  body.theme-lglight .phone-zone{
+    grid-column: 1 / -1;
+    aspect-ratio: 16/5;
+    min-height: 100px;
+  }
+}
 @media(max-width:860px){
   .mat-layout{grid-template-columns:1fr;}
-  .phone-zone{aspect-ratio:unset;min-height:160px;}
+  body.theme-lgdark .mat-layout,
+  body.theme-lglight .mat-layout{grid-template-columns:1fr;}
+  .phone-zone{aspect-ratio:unset;min-height:140px;}
   .top-row{flex-wrap:wrap;}
   .note{flex:1 1 calc(50% - 6px);}
   .bottom-row{grid-template-columns:repeat(2,1fr);}
   .wide-panels-row{grid-template-columns:1fr;}
+  .lg-notes-col{flex-direction:row;flex-wrap:wrap;gap:8px;}
+  .lg-note-card{flex:1 1 calc(50% - 4px);}
 }
 @media(max-width:480px){
   .note{flex:1 1 100%;}
   .bottom-row{grid-template-columns:1fr;}
+  .lg-note-card{flex:1 1 100%;}
 }
 </style>
 </head>
@@ -1026,6 +1457,9 @@ body.remote-mode #remoteView{display:block;max-width:480px;margin:0 auto;}
   <div id="systemBody" class="system-off">
     <div class="mat-layout">
 
+      <!-- LG NOTES COLUMN (shown only in LG themes, populated by JS) -->
+      <div class="lg-notes-col" id="lgNotesCol"></div>
+
       <!-- LEFT -->
       <div class="mat-left">
 
@@ -1064,7 +1498,7 @@ body.remote-mode #remoteView{display:block;max-width:480px;margin:0 auto;}
         <!-- PANELS ROW -->
         <div class="bottom-row">
           <!-- FOCUS TIMER -->
-          <div class="panel">
+          <div class="panel panel-timer">
             <span class="panel-label">Focus Timer</span>
             <div id="timerDisplay">25:00</div>
             <div class="wheel-picker-wrap" id="wheelPickerWrap">
@@ -1078,28 +1512,47 @@ body.remote-mode #remoteView{display:block;max-width:480px;margin:0 auto;}
             </div>
           </div>
 
-          <!-- CLOCK — iPhone style -->
-          <div class="panel">
+          <!-- CLOCK — iPhone style: square face for iOS16, round glass face for Liquid Glass -->
+          <div class="panel panel-clock">
             <span class="panel-label">Giờ thực</span>
             <div id="iphone-clock-wrap">
               <div id="bigTime">--<span id="bigTimeSec">:--</span></div>
               <div id="dateStrip">--</div>
               <div class="clock-analog-mini">
-                <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="40" cy="40" r="38" fill="var(--clock-face)" stroke="var(--clock-stroke)" stroke-width="1"/>
-                  <g id="clockTicks"></g>
-                  <line id="hourHand" x1="40" y1="40" x2="40" y2="24" stroke="var(--clock-hand)" stroke-width="2.8" stroke-linecap="round"/>
-                  <line id="minHand" x1="40" y1="40" x2="40" y2="15" stroke="var(--clock-hand)" stroke-width="2" stroke-linecap="round"/>
-                  <line id="secHand" x1="40" y1="40" x2="40" y2="12" stroke="var(--clock-second)" stroke-width="1" stroke-linecap="round"/>
-                  <circle cx="40" cy="40" r="2.2" fill="var(--clock-hand)"/>
-                  <circle cx="40" cy="40" r="1" fill="var(--clock-second)"/>
+                <!-- iOS 16: squircle face, flat numerals, thin minute ticks (classic iOS clock app) -->
+                <svg class="clock-face-square" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="3" y="3" width="74" height="74" rx="18" fill="var(--clock-face)" stroke="var(--clock-stroke)" stroke-width="1"/>
+                  <g class="clockTicksSquare"></g>
+                  <line class="hourHand" x1="40" y1="40" x2="40" y2="24" stroke="var(--clock-hand)" stroke-width="3" stroke-linecap="round"/>
+                  <line class="minHand" x1="40" y1="40" x2="40" y2="15" stroke="var(--clock-hand)" stroke-width="2.2" stroke-linecap="round"/>
+                  <line class="secHand" x1="40" y1="40" x2="40" y2="12" stroke="var(--clock-second)" stroke-width="1.2" stroke-linecap="round"/>
+                  <circle cx="40" cy="40" r="2.4" fill="var(--clock-hand)"/>
+                  <circle cx="40" cy="40" r="1.1" fill="var(--clock-second)"/>
+                </svg>
+                <!-- Liquid Glass: round glass dial, rim highlight, soft inner shadow, glossy sheen -->
+                <svg class="clock-face-round" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <radialGradient id="lgClockSheen" cx="35%" cy="25%" r="75%">
+                      <stop offset="0%" stop-color="#ffffff" stop-opacity=".55"/>
+                      <stop offset="45%" stop-color="#ffffff" stop-opacity=".12"/>
+                      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+                    </radialGradient>
+                  </defs>
+                  <circle class="cf-rim" cx="40" cy="40" r="37.5" fill="var(--clock-face)" stroke="var(--glass-border)" stroke-width="1.4"/>
+                  <circle cx="40" cy="40" r="37.5" fill="url(#lgClockSheen)"/>
+                  <g class="clockTicksRound"></g>
+                  <line class="hourHand" x1="40" y1="40" x2="40" y2="24" stroke="var(--clock-hand)" stroke-width="3" stroke-linecap="round"/>
+                  <line class="minHand" x1="40" y1="40" x2="40" y2="15" stroke="var(--clock-hand)" stroke-width="2.2" stroke-linecap="round"/>
+                  <line class="secHand" x1="40" y1="40" x2="40" y2="12" stroke="var(--clock-second)" stroke-width="1.2" stroke-linecap="round"/>
+                  <circle cx="40" cy="40" r="2.4" fill="var(--clock-hand)"/>
+                  <circle cx="40" cy="40" r="1.1" fill="var(--clock-second)"/>
                 </svg>
               </div>
             </div>
           </div>
 
           <!-- QUOTE -->
-          <div class="panel">
+          <div class="panel panel-quote">
             <span class="panel-label" contenteditable="true" spellcheck="false">Stay Focused</span>
             <div class="quote-text" id="encourageBox" contenteditable="true" spellcheck="false">You've got this! 🍀</div>
           </div>
@@ -1306,20 +1759,249 @@ function showToast(msg){
   setTimeout(()=>toast.classList.remove('show'),2000);
 }
 
-/* THEME */
+/* ============================================================ THEME + LAYOUT MORPH */
 const THEMES = ['default','ios16light','lgdark','lglight'];
+const LG_THEMES = ['lgdark','lglight'];
 let currentTheme = localStorage.getItem('deskmat_theme') || 'default';
-function applyTheme(name){
-  currentTheme = name;
-  THEMES.forEach(t=>document.body.classList.remove('theme-'+t));
-  if(name !== 'default') document.body.classList.add('theme-'+name);
-  localStorage.setItem('deskmat_theme', name);
-  document.querySelectorAll('.theme-swatch,.rm-tsw').forEach(s=>{
-    s.classList.toggle('active', s.dataset.theme === name);
+let themeTransitioning = false;
+
+/* --- LG Notes Column ---
+   Full-featured note cards in the LG column: contenteditable title/sub,
+   dur-input, time-input, click states (active-task → done → undo), drag & drop.
+   Cards are linked bidirectionally to real .note elements. */
+function buildLGNoteCards(){
+  const col = document.getElementById('lgNotesCol');
+  if(!col) return;
+  col.innerHTML = '';
+  const notes = Array.from(document.getElementById('notesRow').querySelectorAll('.note'));
+  const nums = ['①','②','③','④','⑤','⑥','⑦','⑧','⑨','⑩'];
+  let lgDragSrc = null;
+
+  notes.forEach((note, i) => {
+    const cls = (note.className.match(/note\d/)||[''])[0];
+    const title = (note.querySelector('h3')||{textContent:''}).textContent || '';
+    const sub   = (note.querySelector('p')||{textContent:''}).textContent || '';
+    const dur   = (note.querySelector('.dur-input')||{value:''}).value || '';
+    const time  = (note.querySelector('.time-input')||{value:''}).value || '';
+    const isDone      = note.classList.contains('done');
+    const isOverdue   = note.classList.contains('overdue');
+    const isActive    = note.classList.contains('active-task');
+
+    const card = document.createElement('div');
+    card.className = `lg-note-card ${cls}${isDone?' done':''}${isOverdue?' overdue':''}${isActive?' active-task':''}`;
+    card.draggable = true;
+    card.dataset.realIdx = i;
+    card.innerHTML = `
+      <div class="lg-note-num">${nums[i]||'⓪'}</div>
+      <span class="lg-note-led"></span>
+      <button class="lg-note-del" title="Xóa">✕</button>
+      <h4 contenteditable="true" spellcheck="false">${title}</h4>
+      <p contenteditable="true" spellcheck="false">${sub}</p>
+      <div class="lg-note-meta">
+        <span class="lg-meta-dur" contenteditable="true" spellcheck="false">${dur||'—'}</span>
+        <span class="lg-meta-time" contenteditable="true" spellcheck="false">${time||'—'}</span>
+      </div>`;
+
+    /* Sync edits back to real note */
+    const cardH4 = card.querySelector('h4');
+    const cardP  = card.querySelector('p');
+    const cardDur  = card.querySelector('.lg-meta-dur');
+    const cardTime = card.querySelector('.lg-meta-time');
+    const realH3   = note.querySelector('h3');
+    const realP    = note.querySelector('p');
+    const realDur  = note.querySelector('.dur-input');
+    const realTime = note.querySelector('.time-input');
+
+    cardH4.addEventListener('input', () => { if(realH3) realH3.textContent = cardH4.textContent; });
+    cardP.addEventListener('input',  () => { if(realP)  realP.textContent  = cardP.textContent; });
+    cardDur.addEventListener('input', () => { if(realDur)  realDur.value  = cardDur.textContent; });
+    cardTime.addEventListener('input',() => { if(realTime) realTime.value = cardTime.textContent; });
+
+    /* Delete */
+    card.querySelector('.lg-note-del').addEventListener('click', (e) => {
+      e.stopPropagation(); e.preventDefault();
+      const realDelBtn = note.querySelector('.del-btn');
+      if(realDelBtn) realDelBtn.click();
+    });
+
+    /* Click-to-cycle state — identical logic to iOS16 notes */
+    card.addEventListener('click', (e) => {
+      if(e.target.isContentEditable || e.target.closest('[contenteditable="true"]')) return;
+      if(e.target.classList.contains('lg-note-del') || e.target.closest('.lg-note-del')) return;
+      /* delegate to real note's click handler */
+      note.click();
+      /* sync card classes after real note updates */
+      setTimeout(() => {
+        card.classList.toggle('done',     note.classList.contains('done'));
+        card.classList.toggle('overdue',  note.classList.contains('overdue'));
+        card.classList.toggle('active-task', note.classList.contains('active-task'));
+      }, 0);
+    });
+
+    /* Drag within LG column — reorders real notes too */
+    card.addEventListener('dragstart', (e) => {
+      lgDragSrc = card;
+      card.classList.add('dragging');
+      e.dataTransfer.effectAllowed = 'move';
+    });
+    card.addEventListener('dragend', () => {
+      card.classList.remove('dragging');
+      col.querySelectorAll('.lg-note-card').forEach(c => c.classList.remove('drag-over'));
+    });
+    card.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      if(card !== lgDragSrc) card.classList.add('drag-over');
+    });
+    card.addEventListener('dragleave', () => card.classList.remove('drag-over'));
+    card.addEventListener('drop', (e) => {
+      e.preventDefault(); card.classList.remove('drag-over');
+      if(!lgDragSrc || lgDragSrc === card) return;
+      const allCards = [...col.querySelectorAll('.lg-note-card')];
+      const si = allCards.indexOf(lgDragSrc);
+      const ti = allCards.indexOf(card);
+      if(si < ti) col.insertBefore(lgDragSrc, card.nextSibling);
+      else         col.insertBefore(lgDragSrc, card);
+      /* also reorder real notes */
+      const realNotes = [...notesRow.querySelectorAll('.note')];
+      const rsrc = realNotes[si], rtgt = realNotes[ti];
+      if(rsrc && rtgt){
+        if(si < ti) notesRow.insertBefore(rsrc, rtgt.nextSibling);
+        else        notesRow.insertBefore(rsrc, rtgt);
+      }
+      updateNoteNumbers();
+      /* update card numbers */
+      const updatedCards = [...col.querySelectorAll('.lg-note-card')];
+      const n2 = ['①','②','③','④','⑤','⑥','⑦','⑧','⑨','⑩'];
+      updatedCards.forEach((c,idx) => { const el=c.querySelector('.lg-note-num'); if(el) el.textContent=n2[idx]||'⓪'; });
+      showToast('↕ Đã sắp xếp');
+    });
+
+    col.appendChild(card);
   });
 }
-document.querySelectorAll('.theme-swatch').forEach(s=>s.addEventListener('click',()=>applyTheme(s.dataset.theme)));
-applyTheme(currentTheme);
+
+function syncLGCards(){
+  const isLG = LG_THEMES.includes(currentTheme);
+  if(!isLG) return;
+  buildLGNoteCards();
+}
+
+/* FLIP Layout Morph — GPU-safe: only animates `transform` + `opacity` */
+function morphLayout(toLG, onComplete){
+  const mat = document.querySelector('.mat-layout');
+  const col = document.getElementById('lgNotesCol');
+  if(!mat){ onComplete && onComplete(); return; }
+
+  /* FIRST: snapshot rects of key stable elements before layout change */
+  const bottomRow   = document.querySelector('.bottom-row');
+  const wideRow     = document.querySelector('.wide-panels-row');
+  const phoneZone   = document.getElementById('phoneZone');
+  const stableEls   = [bottomRow, wideRow, phoneZone].filter(Boolean);
+  const firstRects  = stableEls.map(el => el.getBoundingClientRect());
+
+  /* Apply new layout class immediately */
+  if(toLG) buildLGNoteCards();
+  onComplete && onComplete(); /* theme class swap happens here */
+
+  /* LAST: measure new positions in next frame */
+  requestAnimationFrame(() => {
+    const lastRects = stableEls.map(el => el.getBoundingClientRect());
+
+    /* INVERT: push elements back to old position using transform */
+    stableEls.forEach((el, i) => {
+      const dx = firstRects[i].left - lastRects[i].left;
+      const dy = firstRects[i].top  - lastRects[i].top;
+      if(Math.abs(dx) < 1 && Math.abs(dy) < 1) return; /* no move, skip */
+      el.style.transition = 'none';
+      el.style.transform  = `translate(${dx}px,${dy}px)`;
+    });
+
+    /* PLAY: animate to natural position */
+    requestAnimationFrame(() => {
+      const ease = 'cubic-bezier(.4,0,.2,1)';
+      const dur  = '480ms';
+      stableEls.forEach(el => {
+        el.style.transition = `transform ${dur} ${ease}`;
+        el.style.transform  = '';
+      });
+      /* Clean up after animation */
+      setTimeout(() => {
+        stableEls.forEach(el => { el.style.transition = ''; el.style.transform = ''; });
+        if(!toLG && col) col.innerHTML = '';
+        document.body.classList.remove('is-transitioning');
+        themeTransitioning = false;
+      }, 490);
+    });
+  });
+}
+
+function applyTheme(name, animate){
+  if(themeTransitioning) return;
+  const wasLG = LG_THEMES.includes(currentTheme);
+  const willLG = LG_THEMES.includes(name);
+  const layoutChanges = wasLG !== willLG;
+  currentTheme = name;
+
+  const doSwap = () => {
+    THEMES.forEach(t => document.body.classList.remove('theme-'+t));
+    if(name !== 'default') document.body.classList.add('theme-'+name);
+    localStorage.setItem('deskmat_theme', name);
+    document.querySelectorAll('.theme-swatch,.rm-tsw').forEach(s => {
+      s.classList.toggle('active', s.dataset.theme === name);
+    });
+  };
+
+  /* Stagger-fade notes on every theme switch (layout or not) */
+  function staggerNotes(out, onDone){
+    const items = [
+      ...document.querySelectorAll('.note'),
+      ...document.querySelectorAll('.lg-note-card')
+    ];
+    items.forEach((el, i) => {
+      el.style.transition = `opacity .22s cubic-bezier(.4,0,.2,1) ${i * 28}ms, transform .28s cubic-bezier(.34,1.56,.64,1) ${i * 28}ms`;
+      el.style.opacity  = out ? '0' : '1';
+      el.style.transform = out ? 'translateY(6px) scale(.97)' : '';
+    });
+    const total = items.length * 28 + 280;
+    setTimeout(() => {
+      items.forEach(el => { el.style.transition = ''; el.style.transform = ''; el.style.opacity = ''; });
+      onDone && onDone();
+    }, total);
+  }
+
+  if(animate && layoutChanges){
+    themeTransitioning = true;
+    document.body.classList.add('is-transitioning');
+
+    /* Phase 1: fade notes out */
+    staggerNotes(true, () => {
+      /* Phase 2: crossfade mat + morph layout */
+      const systemBody = document.getElementById('systemBody');
+      if(systemBody){
+        systemBody.style.transition = 'opacity .22s cubic-bezier(.4,0,.2,1)';
+        systemBody.style.opacity = '0.5';
+      }
+      setTimeout(() => {
+        morphLayout(willLG, doSwap);
+        if(systemBody){
+          systemBody.style.transition = 'opacity .38s cubic-bezier(.4,0,.2,1)';
+          systemBody.style.opacity = '1';
+          setTimeout(() => { systemBody.style.transition = ''; systemBody.style.opacity = ''; }, 390);
+        }
+        /* Phase 3: fade notes back in after layout settles */
+        setTimeout(() => staggerNotes(false), 120);
+      }, 160);
+    });
+  } else {
+    /* Same-group switch (e.g. lgdark↔lglight): no stagger, just swap */
+    doSwap();
+    if(willLG) buildLGNoteCards();
+    else { const col = document.getElementById('lgNotesCol'); if(col) col.innerHTML = ''; }
+  }
+}
+
+document.querySelectorAll('.theme-swatch').forEach(s => s.addEventListener('click', () => applyTheme(s.dataset.theme, true)));
+applyTheme(currentTheme, false);
 
 /* NOTES DRAG & DROP */
 let dragSrc = null;
@@ -1336,7 +2018,7 @@ function attachNoteEvents(note){
     e.stopPropagation(); e.preventDefault();
     if(note.classList.contains('done')) doneCount--;
     note.remove(); allNotes=allNotes.filter(n=>n!==note);
-    doneCountEl.textContent=doneCount; updateNoteNumbers(); showToast('🗑 Đã xóa'); broadcastState();
+    doneCountEl.textContent=doneCount; updateNoteNumbers(); showToast('🗑 Đã xóa'); broadcastState(); syncLGCards();
   }, true);
 
   note.addEventListener('click',(e)=>{
@@ -1353,7 +2035,7 @@ function attachNoteEvents(note){
     } else {
       note.classList.remove('done'); doneCount--; showToast('↩ Bỏ tick: '+title);
     }
-    doneCountEl.textContent=doneCount; broadcastState();
+    doneCountEl.textContent=doneCount; broadcastState(); syncLGCards();
   });
 
   note.addEventListener('dragstart',(e)=>{ dragSrc=note; note.classList.add('dragging'); e.dataTransfer.effectAllowed='move'; });
@@ -1364,7 +2046,7 @@ function attachNoteEvents(note){
     e.preventDefault(); note.classList.remove('drag-over'); if(!dragSrc||dragSrc===note) return;
     const p=notesRow,si=[...p.children].indexOf(dragSrc),ti=[...p.children].indexOf(note);
     if(si<ti) p.insertBefore(dragSrc,note.nextSibling); else p.insertBefore(dragSrc,note);
-    updateNoteNumbers(); showToast('↕ Đã sắp xếp');
+    updateNoteNumbers(); showToast('↕ Đã sắp xếp'); syncLGCards();
   });
   note.querySelectorAll('input,[contenteditable="true"]').forEach(el=>el.addEventListener('click',e=>e.stopPropagation()));
 }
@@ -1379,7 +2061,7 @@ function addNoteFromFile(filename,deadline){
   const note=document.createElement('div');
   note.className='note note'+noteColorCycle; note.draggable=true;
   note.innerHTML=`<span class="num"></span><span class="led"></span><button class="del-btn" title="Xóa">✕</button><h3 contenteditable="true" spellcheck="false">${shortName}</h3><p contenteditable="true" spellcheck="false">Từ file đính kèm</p><div class="note-meta"><input type="text" value="—" class="dur-input"><input type="text" value="${formatDeadline(deadline)}" class="time-input"></div>`;
-  notesRow.appendChild(note); attachNoteEvents(note); allNotes.push(note); updateNoteNumbers();
+  notesRow.appendChild(note); attachNoteEvents(note); allNotes.push(note); updateNoteNumbers(); syncLGCards();
 }
 
 /* SETTINGS */
@@ -1539,17 +2221,21 @@ focusStopBtn.addEventListener('click',()=>{
   startFocusPhase('focus'); closeFocusMode();
 });
 
-/* CLOCK — iPhone style */
+/* CLOCK — iPhone style: builds ticks for BOTH the square (iOS16) and
+   round (Liquid Glass) faces; only the active one is visible via CSS,
+   but keeping both in sync avoids any visual jump when switching theme. */
 function buildClockTicks(){
-  const g=document.getElementById('clockTicks');if(!g)return;g.innerHTML='';
-  for(let i=0;i<12;i++){
-    const a=i*30*Math.PI/180,cx=40,cy=40,r1=i%3===0?31:33,r2=36;
-    const x1=cx+r1*Math.sin(a),y1=cy-r1*Math.cos(a),x2=cx+r2*Math.sin(a),y2=cy-r2*Math.cos(a);
-    const line=document.createElementNS('http://www.w3.org/2000/svg','line');
-    line.setAttribute('x1',x1);line.setAttribute('y1',y1);line.setAttribute('x2',x2);line.setAttribute('y2',y2);
-    line.setAttribute('stroke','var(--clock-stroke)');line.setAttribute('stroke-width',i%3===0?'1.5':'1');
-    line.setAttribute('stroke-linecap','round');g.appendChild(line);
-  }
+  document.querySelectorAll('.clockTicksSquare,.clockTicksRound').forEach(g=>{
+    g.innerHTML='';
+    for(let i=0;i<12;i++){
+      const a=i*30*Math.PI/180,cx=40,cy=40,r1=i%3===0?31:33,r2=36;
+      const x1=cx+r1*Math.sin(a),y1=cy-r1*Math.cos(a),x2=cx+r2*Math.sin(a),y2=cy-r2*Math.cos(a);
+      const line=document.createElementNS('http://www.w3.org/2000/svg','line');
+      line.setAttribute('x1',x1);line.setAttribute('y1',y1);line.setAttribute('x2',x2);line.setAttribute('y2',y2);
+      line.setAttribute('stroke','var(--clock-tick)');line.setAttribute('stroke-width',i%3===0?'1.6':'1');
+      line.setAttribute('stroke-linecap','round');g.appendChild(line);
+    }
+  });
 }
 buildClockTicks();
 
@@ -1566,13 +2252,12 @@ function updateClock(){
   const dateStrip=document.getElementById('dateStrip');
   if(dateStrip) dateStrip.textContent=DAYS_VI[now.getDay()]+', '+now.getDate()+' '+MONTHS_VI[now.getMonth()];
 
-  // Analog
+  // Analog — updates every hand in both SVG faces at once (cheap: 6 attr writes/sec)
   const secDeg=s*6,minDeg=(m+s/60)*6,hourDeg=(h%12+m/60)*30;
-  function rotateLine(id,deg,cx,cy,len){
-    const el=document.getElementById(id);if(!el)return;
+  function rotateLine(cls,deg,cx,cy,len){
     const rad=deg*Math.PI/180;
-    el.setAttribute('x2',(cx+len*Math.sin(rad)).toFixed(2));
-    el.setAttribute('y2',(cy-len*Math.cos(rad)).toFixed(2));
+    const x2=(cx+len*Math.sin(rad)).toFixed(2),y2=(cy-len*Math.cos(rad)).toFixed(2);
+    document.querySelectorAll('.'+cls).forEach(el=>{el.setAttribute('x2',x2);el.setAttribute('y2',y2);});
   }
   rotateLine('secHand',secDeg,40,40,27);
   rotateLine('minHand',minDeg,40,40,24);
@@ -1652,7 +2337,7 @@ function handleRemoteCommand(cmd){
   if(cmd==='music_play'){if(audioPlayer.paused)playPauseBtn.click();return;}
   if(cmd==='music_pause'){if(!audioPlayer.paused)playPauseBtn.click();return;}
   if(cmd.startsWith('music_vol:')){const v=parseInt(cmd.split(':')[1])/100;audioPlayer.volume=Math.min(1,Math.max(0,v));document.getElementById('volumeSlider').value=v;return;}
-  if(cmd.startsWith('theme:')){applyTheme(cmd.split(':')[1]);showToast('📱 Theme: '+cmd.split(':')[1]);return;}
+  if(cmd.startsWith('theme:')){applyTheme(cmd.split(':')[1],true);showToast('📱 Theme: '+cmd.split(':')[1]);return;}
   if(cmd.startsWith('task_done:')){const idx=parseInt(cmd.split(':')[1]);const notes=allNotes.filter(n=>n.offsetParent!==null);if(notes[idx])notes[idx].click();return;}
   if(cmd.startsWith('youtube_link:')){loadYoutubeUrl(cmd.slice('youtube_link:'.length),true);return;}
   if(cmd.startsWith('quick_note:')){
@@ -1661,7 +2346,7 @@ function handleRemoteCommand(cmd){
     const note=document.createElement('div');note.className='note note'+noteColorCycle;note.draggable=true;
     const short=text.length>18?text.slice(0,16)+'…':text;
     note.innerHTML=`<span class="num"></span><span class="led"></span><button class="del-btn" title="Xóa">✕</button><h3 contenteditable="true" spellcheck="false">${short}</h3><p contenteditable="true" spellcheck="false">Từ điện thoại 📱</p><div class="note-meta"><input type="text" value="—" class="dur-input"><input type="text" value="Ngay bây giờ" class="time-input"></div>`;
-    notesRow.appendChild(note);attachNoteEvents(note);allNotes.push(note);updateNoteNumbers();showToast('📱 Note mới: '+short);
+    notesRow.appendChild(note);attachNoteEvents(note);allNotes.push(note);updateNoteNumbers();syncLGCards();showToast('📱 Note mới: '+short);
   }
 }
 function broadcastState(){
