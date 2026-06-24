@@ -442,6 +442,20 @@ body.theme-lglight .panel-clock{
   border-left: 1px solid var(--separator);
   margin-left: -1px;
 }
+/* Hover: restore full rounding on timer+clock, override merged shape */
+body.theme-lgdark .panel-timer:hover,
+body.theme-lglight .panel-timer:hover{
+  border-radius:calc(var(--radius-lg) + 10px) !important;
+  border-right-color:rgba(255,255,255,.58) !important;
+  z-index:3;
+}
+body.theme-lgdark .panel-clock:hover,
+body.theme-lglight .panel-clock:hover{
+  border-radius:calc(var(--radius-lg) + 10px) !important;
+  border-left-color:rgba(255,255,255,.58) !important;
+  z-index:3;
+  margin-left:-1px;
+}
 
 /* LG wide panels: files + music */
 body.theme-lgdark .wide-panels-row,
@@ -755,7 +769,7 @@ body.theme-ios16light .note .note-meta input{background:rgba(0,0,0,.06);}
   border-radius:var(--radius-lg);padding:14px 12px;
   backdrop-filter:blur(var(--glass-blur));-webkit-backdrop-filter:blur(var(--glass-blur));
   box-shadow:0 1px 0 var(--glass-highlight) inset,0 4px 16px var(--shadow);
-  transition:border-radius .4s var(--ease-smooth),transform .2s var(--ease-spring),box-shadow .2s;
+  transition:border-radius .3s var(--ease-smooth),transform .2s var(--ease-spring),box-shadow .25s,border-color .25s,z-index 0s;
   position:relative;overflow:hidden;
   contain:layout style paint;
 }
@@ -790,7 +804,37 @@ body.theme-lgdark .panel::before,body.theme-lglight .panel::before{
     radial-gradient(ellipse 30% 20% at 75% 65%,rgba(255,255,255,.06) 0%,transparent 100%);
   pointer-events:none;border-radius:inherit;
 }
-.panel:hover{transform:translateY(-2px);}
+/* LG panel hover: more rounded, slightly bigger, more transparent, stronger refraction */
+body.theme-lgdark .panel:hover,
+body.theme-lglight .panel:hover{
+  transform:translateY(-5px) scale(1.032);
+  border-radius:calc(var(--radius-lg) + 10px);
+  border-color:rgba(255,255,255,.58);
+  box-shadow:
+    0 3px 0 rgba(255,255,255,.98) inset,
+    0 -1.5px 0 rgba(255,255,255,.18) inset,
+    2px 0 0 rgba(255,255,255,.16) inset,
+    -2px 0 0 rgba(255,255,255,.16) inset,
+    0 16px 56px rgba(0,0,0,.18),
+    0 0 80px rgba(255,255,255,.06);
+  backdrop-filter:blur(calc(var(--glass-blur) + 8px)) saturate(calc(var(--glass-sat) + 40%)) brightness(calc(var(--glass-bright) + 8%));
+  -webkit-backdrop-filter:blur(calc(var(--glass-blur) + 8px)) saturate(calc(var(--glass-sat) + 40%)) brightness(calc(var(--glass-bright) + 8%));
+  z-index:2;
+}
+body.theme-lgdark .panel:hover::before,
+body.theme-lglight .panel:hover::before{
+  background:
+    radial-gradient(ellipse 70% 45% at 20% 14%,rgba(255,255,255,.30) 0%,transparent 100%),
+    radial-gradient(ellipse 45% 32% at 80% 60%,rgba(255,255,255,.18) 0%,transparent 100%),
+    radial-gradient(ellipse 30% 22% at 52% 82%,rgba(255,255,255,.10) 0%,transparent 100%);
+}
+body.theme-lgdark .panel:hover::after,
+body.theme-lglight .panel:hover::after{
+  background:linear-gradient(90deg,transparent 0%,rgba(255,255,255,.98) 20%,rgba(255,255,255,1) 50%,rgba(255,255,255,.98) 80%,transparent 100%);
+  height:2.5px;
+  left:2%;right:2%;
+}
+body:not(.theme-lgdark):not(.theme-lglight) .panel:hover{transform:translateY(-2px);}
 .panel-label{
   font-size:10px;font-weight:600;letter-spacing:.8px;
   color:var(--text-tertiary);text-transform:uppercase;margin-bottom:10px;
@@ -912,6 +956,22 @@ body.theme-lgdark .wide-panel,body.theme-lglight .wide-panel{
     -1px 0 0 rgba(255,255,255,.08) inset,
     0 4px 20px rgba(0,0,0,.08);
   overflow:hidden;
+  transition:border-radius .3s var(--ease-smooth),transform .2s var(--ease-spring),box-shadow .25s,border-color .25s;
+}
+body.theme-lgdark .wide-panel:hover,
+body.theme-lglight .wide-panel:hover{
+  transform:translateY(-5px) scale(1.022);
+  border-radius:calc(var(--radius-lg) + 10px);
+  border-color:rgba(255,255,255,.58);
+  box-shadow:
+    0 3px 0 rgba(255,255,255,.98) inset,
+    0 -1.5px 0 rgba(255,255,255,.18) inset,
+    2px 0 0 rgba(255,255,255,.16) inset,
+    -2px 0 0 rgba(255,255,255,.16) inset,
+    0 16px 56px rgba(0,0,0,.18);
+  backdrop-filter:blur(calc(var(--glass-blur) + 8px)) saturate(calc(var(--glass-sat) + 40%)) brightness(calc(var(--glass-bright) + 8%));
+  -webkit-backdrop-filter:blur(calc(var(--glass-blur) + 8px)) saturate(calc(var(--glass-sat) + 40%)) brightness(calc(var(--glass-bright) + 8%));
+  z-index:2;
 }
 body.theme-lgdark .wide-panel::after,body.theme-lglight .wide-panel::after{
   content:"";
@@ -1318,7 +1378,254 @@ body.theme-lgdark .rm-btn::before,body.theme-lglight .rm-btn::before{opacity:.5;
 #rmProgressBar{height:4px;background:var(--bg-tertiary);border-radius:2px;margin-top:8px;overflow:hidden;}
 #rmProgressFill{height:4px;background:var(--accent);border-radius:2px;transition:width .5s;}
 
-/* ===== TOAST ===== */
+/* ===== NOTE TRANSFER NOTIFICATION POPUP ===== */
+#noteTransferPopup{
+  position:fixed;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%) scale(0.85);
+  opacity:0;
+  pointer-events:none;
+  z-index:500;
+  min-width:220px;max-width:320px;
+  padding:22px 28px 18px;
+  border-radius:var(--radius-xl);
+  text-align:center;
+  transition:opacity .22s cubic-bezier(.4,0,.2,1), transform .28s cubic-bezier(.34,1.56,.64,1);
+}
+#noteTransferPopup.show{
+  opacity:1;
+  transform:translate(-50%,-50%) scale(1);
+}
+/* iOS16 dark/default popup */
+body:not(.theme-ios16light):not(.theme-lgdark):not(.theme-lglight) #noteTransferPopup{
+  background:rgba(44,44,46,.96);
+  border:1px solid rgba(255,255,255,.12);
+  box-shadow:0 8px 40px rgba(0,0,0,.55),0 1px 0 rgba(255,255,255,.10) inset;
+  backdrop-filter:blur(28px) saturate(130%);
+  -webkit-backdrop-filter:blur(28px) saturate(130%);
+}
+/* iOS16 light popup */
+body.theme-ios16light #noteTransferPopup{
+  background:rgba(255,255,255,.94);
+  border:1px solid rgba(0,0,0,.08);
+  box-shadow:0 8px 40px rgba(0,0,0,.14),0 1px 0 rgba(255,255,255,.95) inset;
+  backdrop-filter:blur(28px) saturate(130%);
+  -webkit-backdrop-filter:blur(28px) saturate(130%);
+}
+/* LG dark popup */
+body.theme-lgdark #noteTransferPopup{
+  background:transparent;
+  border:1px solid rgba(255,255,255,.38);
+  box-shadow:
+    0 2px 0 rgba(255,255,255,.85) inset,
+    0 -1px 0 rgba(255,255,255,.10) inset,
+    0 12px 50px rgba(0,0,0,.45),
+    0 0 80px rgba(90,200,255,.08);
+  backdrop-filter:blur(28px) saturate(160%) brightness(112%);
+  -webkit-backdrop-filter:blur(28px) saturate(160%) brightness(112%);
+  overflow:hidden;
+}
+body.theme-lgdark #noteTransferPopup::after{
+  content:"";position:absolute;top:0;left:6%;right:6%;height:1.5px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.95) 35%,rgba(255,255,255,1) 50%,rgba(255,255,255,.95) 65%,transparent);
+  pointer-events:none;border-radius:0 0 50% 50%;
+}
+body.theme-lgdark #noteTransferPopup::before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(ellipse 65% 40% at 28% 18%,rgba(255,255,255,.15) 0%,transparent 100%);
+  pointer-events:none;border-radius:inherit;
+}
+/* LG light popup */
+body.theme-lglight #noteTransferPopup{
+  background:transparent;
+  border:1px solid rgba(255,255,255,.55);
+  box-shadow:
+    0 2px 0 rgba(255,255,255,.92) inset,
+    0 -1px 0 rgba(255,255,255,.15) inset,
+    0 12px 50px rgba(40,80,150,.22);
+  backdrop-filter:blur(28px) saturate(160%) brightness(108%);
+  -webkit-backdrop-filter:blur(28px) saturate(160%) brightness(108%);
+  overflow:hidden;
+}
+body.theme-lglight #noteTransferPopup::after{
+  content:"";position:absolute;top:0;left:6%;right:6%;height:1.5px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.98) 35%,rgba(255,255,255,1) 50%,rgba(255,255,255,.98) 65%,transparent);
+  pointer-events:none;border-radius:0 0 50% 50%;
+}
+body.theme-lglight #noteTransferPopup::before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(ellipse 65% 40% at 28% 18%,rgba(255,255,255,.22) 0%,transparent 100%);
+  pointer-events:none;border-radius:inherit;
+}
+#noteTransferPopup .ntp-icon{font-size:28px;margin-bottom:6px;display:block;}
+#noteTransferPopup .ntp-label{font-size:13px;font-weight:700;color:var(--text-primary);margin-bottom:3px;}
+#noteTransferPopup .ntp-sub{font-size:11px;color:var(--text-secondary);}
+
+/* ===== NOTE FLY-IN FROM PHONE TO NOTES COL ===== */
+@keyframes noteFromPhone{
+  0%{opacity:0;transform:translateX(180px) translateY(60px) scale(.7);}
+  60%{opacity:1;}
+  100%{opacity:1;transform:translateX(0) translateY(0) scale(1);}
+}
+.note-fly-in,.lg-note-card-fly-in{
+  animation:noteFromPhone .55s cubic-bezier(.34,1.56,.64,1) forwards;
+}
+
+/* ===== PHONE ZONE REMOTE VIEW THEME SYNC ===== */
+/* remote view inherits CSS vars from body class — already done via :root + body classes.
+   Extra: make remote rm-section match current LG glass exactly. */
+body.theme-lgdark .rm-section,
+body.theme-lglight .rm-section{
+  background:transparent;
+  border:1px solid rgba(255,255,255,.28);
+  backdrop-filter:blur(var(--glass-blur)) saturate(var(--glass-sat)) brightness(var(--glass-bright));
+  -webkit-backdrop-filter:blur(var(--glass-blur)) saturate(var(--glass-sat)) brightness(var(--glass-bright));
+  box-shadow:
+    0 1.5px 0 rgba(255,255,255,.75) inset,
+    0 -1px 0 rgba(255,255,255,.08) inset,
+    0 4px 20px rgba(0,0,0,.08);
+  overflow:hidden;
+  position:relative;
+}
+body.theme-lgdark .rm-section::after,
+body.theme-lglight .rm-section::after{
+  content:"";position:absolute;top:0;left:5%;right:5%;height:1.5px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.90) 35%,rgba(255,255,255,.95) 50%,rgba(255,255,255,.90) 65%,transparent);
+  pointer-events:none;border-radius:0 0 50% 50%;
+}
+
+/* ===== GPU OPTIMIZATIONS ===== */
+/* will-change only on actually-animated elements, not glass layers */
+.panel,.note,.lg-note-card,.btn,.theme-swatch,.rm-btn,.rm-tsw{will-change:transform;}
+/* Remove will-change from static glass pseudo-elements: they never animate */
+/* contain: strictly layout+style+paint on panels to isolate repaints */
+.wide-panel{contain:layout style paint;position:relative;}
+.mat{contain:layout style;}
+/* Reduce backdrop-filter blur on mobile to save GPU */
+@media(max-width:768px){
+  :root{--glass-blur:12px;--glass-blur-lg:16px;}
+}
+/* Promote phone zone to own compositing layer (it has glass + hover) */
+.phone-zone{will-change:transform;}
+
+/* ===== REMOTE NAV TABS ===== */
+.rm-nav{
+  display:flex;gap:4px;margin-bottom:14px;
+  background:var(--bg-tertiary);border-radius:var(--radius-md);padding:4px;
+}
+.rm-nav-btn{
+  flex:1;padding:8px 4px;border:none;border-radius:var(--radius-sm);
+  font-size:10px;font-weight:700;cursor:pointer;letter-spacing:.2px;
+  background:transparent;color:var(--text-tertiary);font-family:inherit;
+  transition:background .15s,color .15s,transform .12s var(--ease-spring);
+}
+.rm-nav-btn.active{background:var(--surface-elevated);color:var(--text-primary);}
+.rm-nav-btn:active{transform:scale(.92);}
+.rm-tab{display:none;}
+.rm-tab.active{display:block;}
+
+/* ===== GOALS ===== */
+.rm-add-goal-row{display:flex;gap:8px;margin-top:10px;align-items:center;}
+.rm-goal-input{
+  flex:1;padding:10px 12px;background:var(--bg-tertiary);
+  border:1px solid var(--glass-border);border-radius:var(--radius-sm);
+  color:var(--text-primary);font-size:13px;font-family:inherit;outline:none;
+  transition:border-color .2s;
+}
+.rm-goal-input:focus{border-color:var(--accent);}
+.rm-goal-item{
+  display:flex;align-items:center;gap:10px;padding:11px 12px;
+  background:var(--bg-tertiary);border-radius:var(--radius-sm);
+  border:1px solid var(--glass-border);margin-bottom:6px;
+  transition:opacity .2s;
+}
+.rm-goal-item.done{opacity:.45;}
+.rm-goal-item.done .rm-goal-text{text-decoration:line-through;}
+.rm-goal-check{
+  width:22px;height:22px;border-radius:50%;border:2px solid var(--separator);
+  background:transparent;cursor:pointer;flex-shrink:0;display:flex;
+  align-items:center;justify-content:center;font-size:12px;
+  transition:background .15s,border-color .15s;
+}
+.rm-goal-item.done .rm-goal-check{background:var(--accent2);border-color:var(--accent2);}
+.rm-goal-text{flex:1;font-size:13px;color:var(--text-primary);}
+.rm-goal-del{background:none;border:none;color:var(--text-tertiary);cursor:pointer;font-size:14px;padding:2px 4px;}
+
+/* ===== WEEK GRID ===== */
+.rm-week-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;margin-top:8px;}
+.rm-week-day{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:10px;color:var(--text-tertiary);font-weight:600;}
+.rm-week-dot{
+  width:100%;aspect-ratio:1;border-radius:50%;
+  background:var(--bg-tertiary);border:1.5px solid var(--separator);
+  display:flex;align-items:center;justify-content:center;
+  font-size:13px;cursor:pointer;transition:transform .15s var(--ease-spring),background .15s;
+}
+.rm-week-dot.has-goal{background:rgba(10,132,255,.15);border-color:var(--accent);}
+.rm-week-dot.today{border-color:var(--accent);box-shadow:0 0 0 2px rgba(10,132,255,.25);}
+.rm-week-dot.done{background:rgba(48,209,88,.18);border-color:var(--accent2);}
+.rm-week-dot:active{transform:scale(.88);}
+
+/* ===== STREAK ===== */
+.rm-streak-display{display:flex;align-items:center;justify-content:center;gap:20px;padding:14px 0 6px;}
+.rm-streak-num{
+  font-size:60px;font-weight:800;line-height:1;
+  background:linear-gradient(135deg,var(--accent4),var(--accent3));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.rm-streak-info{display:flex;flex-direction:column;gap:3px;}
+.rm-streak-label{font-size:14px;font-weight:700;color:var(--text-primary);}
+.rm-streak-sub{font-size:11px;color:var(--text-tertiary);}
+.rm-streak-flames{font-size:20px;letter-spacing:3px;text-align:center;margin-top:4px;}
+.rm-streak-calendar{display:grid;grid-template-columns:repeat(14,1fr);gap:3px;margin-top:12px;}
+.rm-streak-cell{height:18px;border-radius:4px;background:var(--bg-tertiary);border:1px solid var(--separator);}
+.rm-streak-cell.active{background:linear-gradient(135deg,var(--accent4),var(--accent3));border-color:transparent;}
+.rm-streak-cell.today{box-shadow:0 0 0 2px var(--accent4);}
+
+/* ===== STATS ===== */
+.rm-stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:4px;}
+.rm-stat-card{background:var(--bg-tertiary);border:1px solid var(--glass-border);border-radius:var(--radius-md);padding:14px 12px;text-align:center;}
+.rm-stat-val{font-size:32px;font-weight:800;color:var(--text-primary);line-height:1;}
+.rm-stat-lbl{font-size:10px;font-weight:600;color:var(--text-tertiary);margin-top:4px;text-transform:uppercase;letter-spacing:.4px;}
+.rm-bar-chart{display:flex;align-items:flex-end;gap:5px;height:72px;margin-top:8px;padding:0 2px;}
+.rm-bar-col{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;}
+.rm-bar{width:100%;border-radius:5px 5px 2px 2px;min-height:4px;background:linear-gradient(180deg,var(--accent),rgba(10,132,255,.35));transition:height .5s var(--ease-spring);}
+.rm-bar.today{background:linear-gradient(180deg,var(--accent4),rgba(255,159,10,.35));}
+.rm-bar-lbl{font-size:9px;color:var(--text-tertiary);font-weight:600;}
+.rm-badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px;}
+.rm-badge{display:flex;flex-direction:column;align-items:center;gap:3px;padding:10px 10px;background:var(--bg-tertiary);border-radius:var(--radius-sm);border:1px solid var(--glass-border);min-width:60px;opacity:.3;transition:opacity .2s,border-color .2s;}
+.rm-badge.earned{opacity:1;border-color:var(--accent4);background:rgba(255,159,10,.08);}
+.rm-badge-icon{font-size:22px;}
+.rm-badge-lbl{font-size:9px;font-weight:700;color:var(--text-secondary);text-align:center;line-height:1.3;}
+
+/* ===== PROFILE + LEADERBOARD ===== */
+.rm-profile-row{display:flex;align-items:center;gap:12px;padding:4px 0;}
+.rm-avatar{width:50px;height:50px;border-radius:50%;background:var(--bg-tertiary);border:2px solid var(--glass-border);display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0;}
+.rm-username{font-size:16px;font-weight:700;color:var(--text-primary);}
+.rm-user-score{font-size:12px;color:var(--text-secondary);margin-top:3px;}
+.rm-avatar-picker{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;}
+.rm-avatar-opt{width:44px;height:44px;border-radius:50%;background:var(--bg-tertiary);border:2px solid transparent;display:flex;align-items:center;justify-content:center;font-size:22px;cursor:pointer;transition:border-color .15s,transform .12s var(--ease-spring);}
+.rm-avatar-opt.selected{border-color:var(--accent);}
+.rm-avatar-opt:active{transform:scale(.88);}
+.rm-lb-tabs{display:flex;gap:4px;margin-bottom:10px;}
+.rm-lb-tab{flex:1;padding:7px 6px;border:none;border-radius:var(--radius-xs);font-size:11px;font-weight:600;cursor:pointer;font-family:inherit;background:var(--bg-tertiary);color:var(--text-tertiary);transition:background .15s,color .15s;}
+.rm-lb-tab.active{background:var(--surface-elevated);color:var(--text-primary);}
+.rm-leaderboard{display:flex;flex-direction:column;gap:6px;}
+.rm-lb-row{display:flex;align-items:center;gap:10px;padding:10px 12px;background:var(--bg-tertiary);border-radius:var(--radius-sm);border:1px solid var(--glass-border);}
+.rm-lb-row.me{border-color:var(--accent);background:rgba(10,132,255,.06);}
+.rm-lb-row.top1{border-color:var(--accent4);background:rgba(255,159,10,.07);}
+.rm-lb-rank{font-size:15px;font-weight:800;color:var(--text-tertiary);min-width:22px;}
+.rm-lb-row.top1 .rm-lb-rank{color:var(--accent4);}
+.rm-lb-av{font-size:20px;}
+.rm-lb-name{flex:1;font-size:13px;font-weight:600;color:var(--text-primary);}
+.rm-lb-pts{font-size:12px;font-weight:700;color:var(--accent);}
+.rm-lb-streak{font-size:11px;color:var(--accent3);margin-left:4px;}
+#rmFriendsList{display:flex;flex-direction:column;gap:5px;margin-top:8px;}
+.rm-friend-row{display:flex;align-items:center;gap:8px;padding:8px 10px;background:var(--bg-tertiary);border-radius:var(--radius-sm);border:1px solid var(--glass-border);font-size:12px;}
+.rm-friend-name{flex:1;color:var(--text-primary);font-weight:500;}
+.rm-friend-score{font-size:11px;color:var(--text-secondary);}
+.rm-friend-del{background:none;border:none;color:var(--text-tertiary);cursor:pointer;font-size:13px;}
+#rmProgressInfo{font-size:13px;text-align:center;color:var(--text-secondary);}
+
 .toast{
   position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(16px);
   background:var(--glass);border:1px solid var(--glass-border);
@@ -1656,6 +1963,13 @@ body.theme-lgdark .rm-btn::before,body.theme-lglight .rm-btn::before{opacity:.5;
 <div class="footer-note">Tasks done: <span id="doneCount">0</span> / <span id="totalCount">4</span></div>
 <div class="toast" id="toast"></div>
 
+<!-- Note Transfer Popup -->
+<div id="noteTransferPopup">
+  <span class="ntp-icon">📌</span>
+  <div class="ntp-label">Note đã chuyển lên!</div>
+  <div class="ntp-sub">Từ điện thoại 📱</div>
+</div>
+
 <!-- File popup -->
 <div class="file-popup-overlay" id="filePopupOverlay">
   <div class="file-popup">
@@ -1681,67 +1995,205 @@ body.theme-lgdark .rm-btn::before,body.theme-lglight .rm-btn::before{opacity:.5;
   </div>
   <div id="rmConnStatus">⏳ Đang kết nối...</div>
 
-  <div class="rm-section">
-    <span class="rm-section-label">⏱ Timer & Focus</span>
-    <div id="rmPhase">---</div>
-    <div id="rmCurrentTask">---</div>
-    <div id="rmTimerDisplay">--:--</div>
-    <div id="rmProgressBar"><div id="rmProgressFill" style="width:0%"></div></div>
-    <div class="rm-btn-row" style="margin-top:12px;">
-      <button class="rm-btn green" onclick="rmSend('timer_start')">▶ Start</button>
-      <button class="rm-btn" onclick="rmSend('timer_pause')">⏸ Pause</button>
-      <button class="rm-btn" onclick="rmSend('focus_skip')">⏭ Skip</button>
-      <button class="rm-btn red" onclick="rmSend('timer_stop')">✕ Stop</button>
-    </div>
-    <div class="rm-btn-row" style="margin-top:8px;">
-      <button class="rm-btn gold" onclick="rmSend('focus_mode_open')">🎯 Focus Mode</button>
-      <button class="rm-btn" onclick="rmSend('focus_close')">⌄ Đóng</button>
-      <button class="rm-btn red" onclick="rmSend('focus_full_stop')">⏹ Dừng phiên</button>
-    </div>
+  <!-- NAV TABS -->
+  <div class="rm-nav">
+    <button class="rm-nav-btn active" data-tab="timer">⏱ Timer</button>
+    <button class="rm-nav-btn" data-tab="tasks">📌 Tasks</button>
+    <button class="rm-nav-btn" data-tab="goals">🎯 Goals</button>
+    <button class="rm-nav-btn" data-tab="stats">📊 Stats</button>
+    <button class="rm-nav-btn" data-tab="social">🏆 Board</button>
   </div>
 
-  <div class="rm-section">
-    <span class="rm-section-label">📌 Tasks</span>
-    <div class="rm-tasks-list" id="rmTasksList"></div>
-  </div>
-
-  <div class="rm-section">
-    <span class="rm-section-label">🎵 Nhạc</span>
-    <div class="rm-btn-row">
-      <button class="rm-btn accent" onclick="rmSend('music_play')">▶ Play</button>
-      <button class="rm-btn" onclick="rmSend('music_pause')">⏸ Pause</button>
+  <!-- TAB: TIMER -->
+  <div class="rm-tab active" id="rmTab-timer">
+    <div class="rm-section">
+      <span class="rm-section-label">⏱ Timer & Focus</span>
+      <div id="rmPhase">---</div>
+      <div id="rmCurrentTask">---</div>
+      <div id="rmTimerDisplay">--:--</div>
+      <div id="rmProgressBar"><div id="rmProgressFill" style="width:0%"></div></div>
+      <div class="rm-btn-row" style="margin-top:12px;">
+        <button class="rm-btn green" onclick="rmSend('timer_start')">▶ Start</button>
+        <button class="rm-btn" onclick="rmSend('timer_pause')">⏸ Pause</button>
+        <button class="rm-btn" onclick="rmSend('focus_skip')">⏭ Skip</button>
+        <button class="rm-btn red" onclick="rmSend('timer_stop')">✕ Stop</button>
+      </div>
+      <div class="rm-btn-row" style="margin-top:8px;">
+        <button class="rm-btn gold" onclick="rmSend('focus_mode_open')">🎯 Focus Mode</button>
+        <button class="rm-btn" onclick="rmSend('focus_close')">⌄ Đóng</button>
+        <button class="rm-btn red" onclick="rmSend('focus_full_stop')">⏹ Dừng phiên</button>
+      </div>
     </div>
-    <div style="display:flex;align-items:center;gap:8px;margin-top:8px;">
-      <label style="font-size:11px;color:var(--text-tertiary);">🔊</label>
-      <input type="range" min="0" max="100" value="70" oninput="rmSend('music_vol:'+this.value)" style="flex:1;">
-    </div>
-    <textarea class="rm-textarea" id="rmLinkInput" rows="2" placeholder="Dán link YouTube..." style="margin-top:10px;"></textarea>
-    <button class="rm-btn accent" style="width:100%;margin-top:8px;" onclick="rmSendLink()">▶ Gửi lên Desktop</button>
-  </div>
-
-  <div class="rm-section">
-    <span class="rm-section-label">🎨 Giao diện</span>
-    <div id="rmThemes">
-      <div class="rm-tsw" style="background:linear-gradient(135deg,#000,#1c1c1e)" onclick="rmSend('theme:default')" title="iOS 16 Dark"></div>
-      <div class="rm-tsw" style="background:linear-gradient(135deg,#f2f2f7,#fff)" onclick="rmSend('theme:ios16light')" title="iOS 16 Light"></div>
-      <div class="rm-tsw" style="background:linear-gradient(135deg,#0d1628,#1a2040)" onclick="rmSend('theme:lgdark')" title="LG Dark"></div>
-      <div class="rm-tsw" style="background:linear-gradient(135deg,#c8e6ff,#e8d4ff)" onclick="rmSend('theme:lglight')" title="LG Light"></div>
+    <div class="rm-section">
+      <span class="rm-section-label">🎨 Giao diện</span>
+      <div id="rmThemes">
+        <div class="rm-tsw" data-theme="default" style="background:linear-gradient(135deg,#000,#1c1c1e)" onclick="rmSend('theme:default')" title="iOS 16 Dark"></div>
+        <div class="rm-tsw" data-theme="ios16light" style="background:linear-gradient(135deg,#f2f2f7,#fff)" onclick="rmSend('theme:ios16light')" title="iOS 16 Light"></div>
+        <div class="rm-tsw" data-theme="lgdark" style="background:linear-gradient(135deg,#0d1628,#1a2040)" onclick="rmSend('theme:lgdark')" title="LG Dark"></div>
+        <div class="rm-tsw" data-theme="lglight" style="background:linear-gradient(135deg,#c8e6ff,#e8d4ff)" onclick="rmSend('theme:lglight')" title="LG Light"></div>
+      </div>
     </div>
   </div>
 
-  <div class="rm-section">
-    <span class="rm-section-label">📝 Gửi Sticky Note</span>
-    <textarea id="rmNoteInput" rows="3" placeholder="Nhập nội dung note..."></textarea>
-    <button class="rm-btn accent" style="width:100%;margin-top:8px;" onclick="rmSendNote()">📌 Gửi lên Desktop</button>
+  <!-- TAB: TASKS -->
+  <div class="rm-tab" id="rmTab-tasks">
+    <div class="rm-section">
+      <span class="rm-section-label">📌 Tasks hôm nay</span>
+      <div class="rm-tasks-list" id="rmTasksList"></div>
+    </div>
+    <div class="rm-section">
+      <span class="rm-section-label">📝 Thêm sticky note</span>
+      <textarea id="rmNoteInput" rows="3" placeholder="Nhập nội dung note..."></textarea>
+      <div class="rm-btn-row" style="margin-top:8px;">
+        <button class="rm-btn accent" style="flex:1;" onclick="rmSendNote()">📌 Gửi lên Desktop</button>
+      </div>
+    </div>
   </div>
 
-  <div class="rm-section">
-    <span class="rm-section-label">📊 Tiến độ hôm nay</span>
-    <div id="rmProgressInfo" style="font-size:13px;text-align:center;color:var(--text-secondary);">Đang tải...</div>
+  <!-- TAB: GOALS -->
+  <div class="rm-tab" id="rmTab-goals">
+    <div class="rm-section">
+      <span class="rm-section-label">🎯 Mục tiêu hôm nay</span>
+      <div id="rmGoalsList"></div>
+      <div class="rm-add-goal-row">
+        <input class="rm-goal-input" id="rmGoalInput" placeholder="Thêm mục tiêu..." maxlength="60">
+        <button class="rm-btn accent" style="padding:10px 14px;" onclick="rmAddGoal()">+</button>
+      </div>
+    </div>
+    <div class="rm-section">
+      <span class="rm-section-label">📅 Kế hoạch tuần</span>
+      <div class="rm-week-grid" id="rmWeekGrid"></div>
+    </div>
+    <div class="rm-section">
+      <span class="rm-section-label">🔥 Streak</span>
+      <div class="rm-streak-display" id="rmStreakDisplay"></div>
+    </div>
   </div>
+
+  <!-- TAB: STATS -->
+  <div class="rm-tab" id="rmTab-stats">
+    <div class="rm-section">
+      <span class="rm-section-label">📊 Focus hôm nay</span>
+      <div class="rm-stat-grid">
+        <div class="rm-stat-card">
+          <div class="rm-stat-val" id="statFocusMin">0</div>
+          <div class="rm-stat-lbl">phút focus</div>
+        </div>
+        <div class="rm-stat-card">
+          <div class="rm-stat-val" id="statSessions">0</div>
+          <div class="rm-stat-lbl">phiên</div>
+        </div>
+        <div class="rm-stat-card">
+          <div class="rm-stat-val" id="statTasksDone">0</div>
+          <div class="rm-stat-lbl">task xong</div>
+        </div>
+        <div class="rm-stat-card">
+          <div class="rm-stat-val" id="statGoalsDone">0</div>
+          <div class="rm-stat-lbl">goals xong</div>
+        </div>
+      </div>
+    </div>
+    <div class="rm-section">
+      <span class="rm-section-label">📈 7 ngày qua</span>
+      <div class="rm-bar-chart" id="rmBarChart"></div>
+    </div>
+    <div class="rm-section">
+      <span class="rm-section-label">🏅 Huy hiệu</span>
+      <div class="rm-badges" id="rmBadges"></div>
+    </div>
+  </div>
+
+  <!-- TAB: SOCIAL LEADERBOARD -->
+  <div class="rm-tab" id="rmTab-social">
+    <div class="rm-section">
+      <span class="rm-section-label">👤 Hồ sơ của bạn</span>
+      <div class="rm-profile-row">
+        <div class="rm-avatar" id="rmAvatarDisplay">🧑</div>
+        <div style="flex:1;">
+          <div class="rm-username" id="rmUsernameDisplay">Chưa đặt tên</div>
+          <div class="rm-user-score">🔥 <span id="rmUserStreak">0</span> ngày · ⭐ <span id="rmUserPoints">0</span> điểm</div>
+        </div>
+        <button class="rm-btn" style="padding:8px 12px;font-size:11px;" onclick="rmEditProfile()">✏️</button>
+      </div>
+    </div>
+    <div class="rm-section" id="rmProfileEditSection" style="display:none;">
+      <span class="rm-section-label">✏️ Chỉnh hồ sơ</span>
+      <div class="rm-avatar-picker" id="rmAvatarPicker"></div>
+      <input class="rm-goal-input" id="rmUsernameInput" placeholder="Tên hiển thị..." maxlength="20" style="margin-top:10px;">
+      <div class="rm-btn-row" style="margin-top:8px;">
+        <button class="rm-btn accent" style="flex:1;" onclick="rmSaveProfile()">💾 Lưu</button>
+        <button class="rm-btn" onclick="rmCancelProfile()">Huỷ</button>
+      </div>
+    </div>
+    <div class="rm-section">
+      <span class="rm-section-label">🏆 Bảng xếp hạng</span>
+      <div class="rm-lb-tabs">
+        <button class="rm-lb-tab active" data-lb="daily" onclick="rmSwitchLb('daily',this)">Hôm nay</button>
+        <button class="rm-lb-tab" data-lb="weekly" onclick="rmSwitchLb('weekly',this)">Tuần này</button>
+        <button class="rm-lb-tab" data-lb="alltime" onclick="rmSwitchLb('alltime',this)">All-time</button>
+      </div>
+      <div class="rm-leaderboard" id="rmLeaderboard"></div>
+    </div>
+    <div class="rm-section">
+      <span class="rm-section-label">👥 Thêm bạn</span>
+      <div style="display:flex;gap:8px;">
+        <input class="rm-goal-input" id="rmFriendInput" placeholder="Nhập tên bạn..." maxlength="20" style="flex:1;">
+        <button class="rm-btn accent" style="padding:10px 14px;" onclick="rmAddFriend()">+</button>
+      </div>
+      <div id="rmFriendsList" style="margin-top:10px;"></div>
+    </div>
+  </div>
+
 </div>
 
 <script>
+/* ============================================================ WATER DROP SOUND */
+let _audioCtx = null;
+function getAudioCtx(){
+  if(!_audioCtx) _audioCtx = new (window.AudioContext||window.webkitAudioContext)();
+  if(_audioCtx.state==='suspended') _audioCtx.resume();
+  return _audioCtx;
+}
+function playWaterDrop(vol,freq){
+  vol=vol||0.38; freq=freq||820;
+  try{
+    const ctx=getAudioCtx();
+    const osc=ctx.createOscillator();
+    const gain=ctx.createGain();
+    const filt=ctx.createBiquadFilter();
+    filt.type='lowpass'; filt.frequency.value=2400; filt.Q.value=1.4;
+    osc.type='sine';
+    osc.frequency.setValueAtTime(freq,ctx.currentTime);
+    osc.frequency.exponentialRampToValueAtTime(freq*0.28,ctx.currentTime+0.18);
+    gain.gain.setValueAtTime(vol,ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001,ctx.currentTime+0.22);
+    osc.connect(filt); filt.connect(gain); gain.connect(ctx.destination);
+    osc.start(ctx.currentTime); osc.stop(ctx.currentTime+0.25);
+  }catch(e){}
+}
+function playClickDrop(){ playWaterDrop(0.22,1100); }
+function playNotificationDrop(){
+  playWaterDrop(0.5,680);
+  setTimeout(function(){playWaterDrop(0.35,920);},120);
+}
+document.addEventListener('click',function(e){
+  var btn=e.target.closest('button,.theme-swatch,.rm-tsw,.rm-btn,.file-tab,.music-tab');
+  if(btn) playClickDrop();
+},true);
+
+/* ============================================================ NOTE TRANSFER POPUP */
+const noteTransferPopup=document.getElementById('noteTransferPopup');
+function showNoteTransferPopup(noteText){
+  if(!noteTransferPopup) return;
+  const lbl=noteTransferPopup.querySelector('.ntp-label');
+  const sub=noteTransferPopup.querySelector('.ntp-sub');
+  if(lbl) lbl.textContent=noteText?'\u201c'+noteText+'\u201d':'Note đã chuyển lên!';
+  if(sub) sub.textContent='Từ điện thoại 📱';
+  playNotificationDrop();
+  noteTransferPopup.classList.add('show');
+  setTimeout(function(){noteTransferPopup.classList.remove('show');},1000);
+}
+
 /* ============================================================ CORE STATE */
 let allNotes = Array.from(document.querySelectorAll('.note'));
 const notesRow = document.getElementById('notesRow');
@@ -1949,6 +2401,8 @@ function applyTheme(name, animate){
     document.querySelectorAll('.theme-swatch,.rm-tsw').forEach(s => {
       s.classList.toggle('active', s.dataset.theme === name);
     });
+    /* Sync remote phone UI theme via MQTT */
+    try{if(typeof mqttClient!=='undefined'&&mqttClient&&mqttClient.connected){mqttClient.publish(TOPIC_STATE,JSON.stringify({from:'desktop',theme:name}));}}catch(e){}
   };
 
   /* Stagger-fade notes on every theme switch (layout or not) */
@@ -2346,7 +2800,26 @@ function handleRemoteCommand(cmd){
     const note=document.createElement('div');note.className='note note'+noteColorCycle;note.draggable=true;
     const short=text.length>18?text.slice(0,16)+'…':text;
     note.innerHTML=`<span class="num"></span><span class="led"></span><button class="del-btn" title="Xóa">✕</button><h3 contenteditable="true" spellcheck="false">${short}</h3><p contenteditable="true" spellcheck="false">Từ điện thoại 📱</p><div class="note-meta"><input type="text" value="—" class="dur-input"><input type="text" value="Ngay bây giờ" class="time-input"></div>`;
-    notesRow.appendChild(note);attachNoteEvents(note);allNotes.push(note);updateNoteNumbers();syncLGCards();showToast('📱 Note mới: '+short);
+    notesRow.appendChild(note);attachNoteEvents(note);allNotes.push(note);updateNoteNumbers();
+    /* Show popup at center then fly note to column */
+    showNoteTransferPopup(short);
+    setTimeout(function(){
+      /* Add fly-in class after popup disappears */
+      const isLG=LG_THEMES.includes(currentTheme);
+      if(isLG){
+        syncLGCards();
+        /* animate the last card in lg column */
+        const col=document.getElementById('lgNotesCol');
+        const cards=col?col.querySelectorAll('.lg-note-card'):[];
+        const last=cards[cards.length-1];
+        if(last){last.classList.add('lg-note-card-fly-in');setTimeout(function(){last.classList.remove('lg-note-card-fly-in');},600);}
+      } else {
+        note.classList.add('note-fly-in');
+        setTimeout(function(){note.classList.remove('note-fly-in');},600);
+        syncLGCards();
+      }
+    },950);
+    showToast('📱 Note mới: '+short);
   }
 }
 function broadcastState(){
@@ -2355,7 +2828,7 @@ function broadcastState(){
   const tasks=notes.map(n=>({title:(n.querySelector('h3')||{textContent:''}).textContent,done:n.classList.contains('done')}));
   const total=focusTotalSeconds>0?focusTotalSeconds:(wheelPickerValue*60);
   const pct=Math.round(Math.max(0,Math.min(100,(1-(focusRunning?focusSeconds:totalSeconds)/total)*100)));
-  mqttClient.publish(TOPIC_STATE,JSON.stringify({from:'desktop',timer:focusRunning?formatTime(focusSeconds):timerDisplay.textContent,task:getCurrentTaskName(),phase:focusRunning?focusPhase.textContent:'',progress:pct,tasks}));
+  mqttClient.publish(TOPIC_STATE,JSON.stringify({from:'desktop',timer:focusRunning?formatTime(focusSeconds):timerDisplay.textContent,task:getCurrentTaskName(),phase:focusRunning?focusPhase.textContent:'',progress:pct,tasks,theme:currentTheme}));
 }
 setInterval(broadcastState,2000);
 
@@ -2387,18 +2860,31 @@ qrBtn.addEventListener('click',showQRPanel);
   const cmdTopic='deskmat3v/'+ch+'/cmd',stateTopic='deskmat3v/'+ch+'/state';
   const connEl=document.getElementById('rmConnStatus'),timerEl=document.getElementById('rmTimerDisplay'),
         taskEl=document.getElementById('rmCurrentTask'),phaseEl=document.getElementById('rmPhase'),
-        pfEl=document.getElementById('rmProgressFill'),tasksListEl=document.getElementById('rmTasksList'),
-        progressInfoEl=document.getElementById('rmProgressInfo');
+        pfEl=document.getElementById('rmProgressFill'),tasksListEl=document.getElementById('rmTasksList');
   let rmClient;
+
+  /* ---- SEND ---- */
   window.rmSend=function(cmd){if(rmClient&&rmClient.connected){rmClient.publish(cmdTopic,JSON.stringify({from:'remote',cmd}));rmShowFeedback(cmd);}};
   window.rmSendNote=function(){const el=document.getElementById('rmNoteInput');const txt=el.value.trim();if(!txt)return;rmSend('quick_note:'+txt);el.value='';};
-  window.rmSendLink=function(){const el=document.getElementById('rmLinkInput');const txt=el.value.trim();if(!txt)return;rmSend('youtube_link:'+txt);el.value='';};
+
   function rmShowFeedback(cmd){
     const fb=document.createElement('div');
-    fb.style.cssText='position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--accent);color:#fff;padding:8px 18px;border-radius:20px;font-size:12px;font-weight:700;z-index:999;transition:opacity .4s;';
+    fb.style.cssText='position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--accent);color:#fff;padding:8px 18px;border-radius:20px;font-size:12px;font-weight:700;z-index:999;transition:opacity .4s;pointer-events:none;';
     fb.textContent='✓ '+cmd.split(':')[0].replace(/_/g,' ');document.body.appendChild(fb);
     setTimeout(()=>{fb.style.opacity='0';setTimeout(()=>fb.remove(),400);},900);
   }
+
+  /* ---- NAV TABS ---- */
+  document.querySelectorAll('.rm-nav-btn').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      document.querySelectorAll('.rm-nav-btn').forEach(b=>b.classList.remove('active'));
+      document.querySelectorAll('.rm-tab').forEach(t=>t.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('rmTab-'+btn.dataset.tab).classList.add('active');
+    });
+  });
+
+  /* ---- TASKS ---- */
   function rmRenderTasks(tasks){
     tasksListEl.innerHTML='';let done=0;
     const colors=['var(--note1-text)','var(--note2-text)','var(--note3-text)','var(--note4-text)'];
@@ -2408,8 +2894,259 @@ qrBtn.addEventListener('click',showQRPanel);
       div.innerHTML='<div class="dot" style="background:'+colors[i%4]+'"></div><span style="flex:1;color:var(--text-primary)">'+(t.title||'Task '+(i+1))+'</span><button class="rm-check-btn" onclick="rmSend(\'task_done:'+i+'\')">'+(t.done?'↩':'✓')+'</button>';
       tasksListEl.appendChild(div);
     });
-    progressInfoEl.textContent='Đã hoàn thành '+done+'/'+tasks.length+' task';
+    document.getElementById('statTasksDone').textContent=done;
+    rmUpdatePoints();
   }
+
+  /* ---- LOCAL STORAGE KEY ---- */
+  const LS='rm_'+ch+'_';
+  function lsGet(k,def){try{const v=localStorage.getItem(LS+k);return v!==null?JSON.parse(v):def;}catch(e){return def;}}
+  function lsSet(k,v){try{localStorage.setItem(LS+k,JSON.stringify(v));}catch(e){}}
+
+  /* ---- GOALS ---- */
+  let goals=lsGet('goals',[]);
+  const goalsList=document.getElementById('rmGoalsList');
+  function saveGoals(){lsSet('goals',goals);rmUpdatePoints();}
+  function renderGoals(){
+    goalsList.innerHTML='';
+    goals.forEach((g,i)=>{
+      const div=document.createElement('div');div.className='rm-goal-item'+(g.done?' done':'');
+      div.innerHTML=`<button class="rm-goal-check" onclick="rmToggleGoal(${i})">${g.done?'✓':''}</button><span class="rm-goal-text">${g.text}</span><button class="rm-goal-del" onclick="rmDelGoal(${i})">✕</button>`;
+      goalsList.appendChild(div);
+    });
+    document.getElementById('statGoalsDone').textContent=goals.filter(g=>g.done).length;
+  }
+  window.rmAddGoal=function(){
+    const inp=document.getElementById('rmGoalInput');const txt=inp.value.trim();if(!txt)return;
+    goals.push({text:txt,done:false,date:today()});inp.value='';saveGoals();renderGoals();rmUpdateStreak();
+  };
+  window.rmToggleGoal=function(i){goals[i].done=!goals[i].done;saveGoals();renderGoals();rmUpdateStreak();};
+  window.rmDelGoal=function(i){goals.splice(i,1);saveGoals();renderGoals();};
+  document.getElementById('rmGoalInput').addEventListener('keydown',e=>{if(e.key==='Enter')rmAddGoal();});
+  renderGoals();
+
+  /* ---- WEEK PLAN ---- */
+  function today(){return new Date().toISOString().slice(0,10);}
+  function getWeekDays(){
+    const days=[]; const now=new Date(); const dow=now.getDay();
+    const LABELS=['CN','T2','T3','T4','T5','T6','T7'];
+    for(let i=0;i<7;i++){
+      const d=new Date(now); d.setDate(now.getDate()-dow+i);
+      days.push({date:d.toISOString().slice(0,10),label:LABELS[i],isToday:d.toISOString().slice(0,10)===today()});
+    }
+    return days;
+  }
+  function renderWeekGrid(){
+    const grid=document.getElementById('rmWeekGrid');if(!grid)return;
+    grid.innerHTML='';
+    const weekPlan=lsGet('weekplan',{});
+    getWeekDays().forEach(d=>{
+      const col=document.createElement('div');col.className='rm-week-day';
+      const hasGoal=weekPlan[d.date]&&weekPlan[d.date].length>0;
+      const allDone=hasGoal&&weekPlan[d.date].every(g=>g.done);
+      const dot=document.createElement('div');
+      dot.className='rm-week-dot'+(hasGoal?' has-goal':'')+(d.isToday?' today':'')+(allDone?' done':'');
+      dot.textContent=allDone?'✓':(d.isToday?'📍':'');
+      dot.title=d.date;
+      col.innerHTML='<span>'+d.label+'</span>';
+      col.appendChild(dot);
+      grid.appendChild(col);
+    });
+  }
+  renderWeekGrid();
+
+  /* ---- STREAK ---- */
+  function rmUpdateStreak(){
+    const history=lsGet('history',{});
+    const t=today();
+    const todayGoals=goals.filter(g=>g.date===t);
+    if(todayGoals.length>0&&todayGoals.every(g=>g.done)) history[t]=true;
+    else delete history[t];
+    lsSet('history',history);
+    /* count consecutive days ending today */
+    let streak=0,cur=new Date();
+    for(let i=0;i<365;i++){
+      const k=new Date(cur);k.setDate(cur.getDate()-i);
+      const ks=k.toISOString().slice(0,10);
+      if(history[ks]) streak++; else break;
+    }
+    lsSet('streak',streak);
+    renderStreak(streak,history);
+    rmUpdatePoints();
+  }
+  function renderStreak(streak,history){
+    const el=document.getElementById('rmStreakDisplay');if(!el)return;
+    const flames='🔥'.repeat(Math.min(streak,5));
+    el.innerHTML=`<div class="rm-streak-num">${streak}</div><div class="rm-streak-info"><div class="rm-streak-label">ngày streak</div><div class="rm-streak-sub">${streak>0?'Đang giữ lửa! 💪':'Bắt đầu hôm nay!'}</div><div class="rm-streak-flames">${flames||'🌱'}</div></div>`;
+    /* Mini calendar: last 14 days */
+    const cal=document.createElement('div');cal.className='rm-streak-calendar';
+    const t=today();
+    for(let i=13;i>=0;i--){
+      const d=new Date();d.setDate(d.getDate()-i);
+      const ds=d.toISOString().slice(0,10);
+      const cell=document.createElement('div');
+      cell.className='rm-streak-cell'+(history[ds]?' active':'')+(ds===t?' today':'');
+      cell.title=ds;cal.appendChild(cell);
+    }
+    el.parentElement&&el.parentElement.appendChild(cal);
+  }
+  rmUpdateStreak();
+
+  /* ---- FOCUS STATS ---- */
+  let focusMinToday=lsGet('focusMin_'+today(),0);
+  let sessionsToday=lsGet('sessions_'+today(),0);
+  function rmLogFocusSession(mins){
+    focusMinToday+=mins; sessionsToday++;
+    lsSet('focusMin_'+today(),focusMinToday);
+    lsSet('sessions_'+today(),sessionsToday);
+    rmUpdateStats();rmUpdatePoints();
+  }
+  function rmUpdateStats(){
+    document.getElementById('statFocusMin').textContent=focusMinToday;
+    document.getElementById('statSessions').textContent=sessionsToday;
+    rmRenderBarChart();rmRenderBadges();
+  }
+  function rmRenderBarChart(){
+    const chart=document.getElementById('rmBarChart');if(!chart)return;
+    chart.innerHTML='';
+    const DAYS=['CN','T2','T3','T4','T5','T6','T7'];
+    const now=new Date(); const dow=now.getDay();
+    let maxVal=1;
+    const vals=[];
+    for(let i=6;i>=0;i--){
+      const d=new Date(now);d.setDate(now.getDate()-i);
+      const ds=d.toISOString().slice(0,10);
+      const v=lsGet('focusMin_'+ds,0);
+      vals.push({v,label:DAYS[d.getDay()],isToday:i===0});
+      if(v>maxVal)maxVal=v;
+    }
+    vals.forEach(({v,label,isToday})=>{
+      const col=document.createElement('div');col.className='rm-bar-col';
+      const bar=document.createElement('div');bar.className='rm-bar'+(isToday?' today':'');
+      bar.style.height=Math.max(4,Math.round((v/maxVal)*60))+'px';
+      bar.title=v+' phút';
+      const lbl=document.createElement('div');lbl.className='rm-bar-lbl';lbl.textContent=label;
+      col.appendChild(bar);col.appendChild(lbl);chart.appendChild(col);
+    });
+  }
+  function rmRenderBadges(){
+    const el=document.getElementById('rmBadges');if(!el)return;
+    const streak=lsGet('streak',0);
+    const BADGES=[
+      {icon:'🌱',label:'Bắt đầu',cond:sessionsToday>=1},
+      {icon:'🔥',label:'3 ngày',cond:streak>=3},
+      {icon:'⚡',label:'5 phiên',cond:sessionsToday>=5},
+      {icon:'💎',label:'7 ngày',cond:streak>=7},
+      {icon:'🏆',label:'30 phút',cond:focusMinToday>=30},
+      {icon:'🚀',label:'60 phút',cond:focusMinToday>=60},
+      {icon:'🌙',label:'30 ngày',cond:streak>=30},
+      {icon:'👑',label:'100 phút',cond:focusMinToday>=100},
+    ];
+    el.innerHTML='';
+    BADGES.forEach(b=>{
+      const div=document.createElement('div');div.className='rm-badge'+(b.cond?' earned':'');
+      div.innerHTML=`<span class="rm-badge-icon">${b.icon}</span><span class="rm-badge-lbl">${b.label}</span>`;
+      el.appendChild(div);
+    });
+  }
+  rmUpdateStats();
+
+  /* ---- POINTS ENGINE ---- */
+  function rmUpdatePoints(){
+    const streak=lsGet('streak',0);
+    const pts=focusMinToday*2+sessionsToday*10+goals.filter(g=>g.done).length*15+streak*5;
+    lsSet('points_'+today(),pts);
+    document.getElementById('rmUserPoints').textContent=pts;
+    document.getElementById('rmUserStreak').textContent=streak;
+    rmRefreshLeaderboard(document.querySelector('.rm-lb-tab.active')?.dataset.lb||'daily');
+  }
+
+  /* ---- PROFILE ---- */
+  const AVATARS=['🧑','👩','🧑‍💻','👨‍🎓','🧑‍🎨','👩‍🔬','🦊','🐼','🐸','🦋','🌟','🔥'];
+  let profile=lsGet('profile',{name:'Bạn',avatar:'🧑'});
+  function renderProfile(){
+    document.getElementById('rmAvatarDisplay').textContent=profile.avatar;
+    document.getElementById('rmUsernameDisplay').textContent=profile.name;
+  }
+  window.rmEditProfile=function(){
+    const sec=document.getElementById('rmProfileEditSection');sec.style.display='block';
+    document.getElementById('rmUsernameInput').value=profile.name;
+    const picker=document.getElementById('rmAvatarPicker');picker.innerHTML='';
+    AVATARS.forEach(av=>{
+      const div=document.createElement('div');div.className='rm-avatar-opt'+(av===profile.avatar?' selected':'');
+      div.textContent=av;div.onclick=()=>{picker.querySelectorAll('.rm-avatar-opt').forEach(d=>d.classList.remove('selected'));div.classList.add('selected');profile.avatar=av;};
+      picker.appendChild(div);
+    });
+  };
+  window.rmSaveProfile=function(){
+    const name=document.getElementById('rmUsernameInput').value.trim()||'Bạn';
+    profile={name,avatar:profile.avatar};lsSet('profile',profile);
+    renderProfile();document.getElementById('rmProfileEditSection').style.display='none';
+    rmUpdatePoints();
+  };
+  window.rmCancelProfile=function(){document.getElementById('rmProfileEditSection').style.display='none';};
+  renderProfile();
+
+  /* ---- LEADERBOARD ---- */
+  /* Stored per-user as shared keys so friends can see each other.
+     Key format: lb_daily_<name> = {avatar, pts, streak}
+     Since we use localStorage (single device), we simulate friends list locally. */
+  function rmGetLeaderboardData(period){
+    const friends=lsGet('friends',[]);
+    const streak=lsGet('streak',0);
+    const pts=period==='daily'?lsGet('points_'+today(),0):
+               period==='weekly'?[0,1,2,3,4,5,6].reduce((s,i)=>{const d=new Date();d.setDate(d.getDate()-i);return s+lsGet('points_'+d.toISOString().slice(0,10),0);},0):
+               lsGet('alltime_pts',0)+lsGet('points_'+today(),0);
+    const rows=[{name:profile.name,avatar:profile.avatar,pts,streak,isMe:true}];
+    friends.forEach(f=>rows.push({name:f.name,avatar:f.avatar||'🧑',pts:f.pts||0,streak:f.streak||0,isMe:false}));
+    rows.sort((a,b)=>b.pts-a.pts);
+    return rows;
+  }
+  function rmRenderLeaderboard(period){
+    const el=document.getElementById('rmLeaderboard');if(!el)return;
+    const rows=rmGetLeaderboardData(period);
+    const rankEmoji=['🥇','🥈','🥉'];
+    el.innerHTML='';
+    rows.forEach((r,i)=>{
+      const div=document.createElement('div');div.className='rm-lb-row'+(r.isMe?' me':'')+(i===0?' top1':'');
+      div.innerHTML=`<span class="rm-lb-rank">${rankEmoji[i]||'#'+(i+1)}</span><span class="rm-lb-av">${r.avatar}</span><span class="rm-lb-name">${r.name}${r.isMe?' (bạn)':''}</span><span class="rm-lb-pts">${r.pts}pts</span><span class="rm-lb-streak">🔥${r.streak}</span>`;
+      el.appendChild(div);
+    });
+    if(!rows.length) el.innerHTML='<div style="text-align:center;color:var(--text-tertiary);padding:16px;font-size:12px;">Chưa có dữ liệu</div>';
+  }
+  window.rmSwitchLb=function(period,btn){
+    document.querySelectorAll('.rm-lb-tab').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');rmRenderLeaderboard(period);
+  };
+  function rmRefreshLeaderboard(period){rmRenderLeaderboard(period||'daily');}
+  rmRenderLeaderboard('daily');
+
+  /* ---- FRIENDS ---- */
+  function renderFriends(){
+    const friends=lsGet('friends',[]);
+    const el=document.getElementById('rmFriendsList');if(!el)return;
+    el.innerHTML='';
+    if(!friends.length){el.innerHTML='<div style="font-size:12px;color:var(--text-tertiary);text-align:center;padding:8px;">Chưa có bạn bè. Thêm tên để so sánh!</div>';return;}
+    friends.forEach((f,i)=>{
+      const div=document.createElement('div');div.className='rm-friend-row';
+      div.innerHTML=`<span style="font-size:18px;">${f.avatar||'🧑'}</span><span class="rm-friend-name">${f.name}</span><span class="rm-friend-score">🔥${f.streak||0} · ⭐${f.pts||0}</span><button class="rm-friend-del" onclick="rmDelFriend(${i})">✕</button>`;
+      el.appendChild(div);
+    });
+  }
+  window.rmAddFriend=function(){
+    const inp=document.getElementById('rmFriendInput');const name=inp.value.trim();if(!name)return;
+    const friends=lsGet('friends',[]);
+    if(friends.find(f=>f.name===name)){rmShowFeedback('already_added');return;}
+    /* In a real app: fetch from server. Here we add locally with simulated pts */
+    friends.push({name,avatar:AVATARS[Math.floor(Math.random()*AVATARS.length)],pts:Math.floor(Math.random()*200)+10,streak:Math.floor(Math.random()*14)});
+    lsSet('friends',friends);inp.value='';renderFriends();rmRefreshLeaderboard('daily');
+  };
+  window.rmDelFriend=function(i){const f=lsGet('friends',[]);f.splice(i,1);lsSet('friends',f);renderFriends();rmRefreshLeaderboard('daily');};
+  document.getElementById('rmFriendInput').addEventListener('keydown',e=>{if(e.key==='Enter')rmAddFriend();});
+  renderFriends();
+
+  /* ---- MQTT ---- */
+  let lastPhaseText='';
   if(typeof mqtt==='undefined'){connEl.textContent='⚠️ Không tải được thư viện kết nối';connEl.className='err';return;}
   rmClient=mqtt.connect(MQTT_BROKER,{clientId:'remote_'+ch+'_'+Math.random().toString(36).slice(2,6),reconnectPeriod:3000});
   rmClient.on('connect',()=>{rmClient.subscribe(stateTopic);rmClient.publish(cmdTopic,JSON.stringify({from:'remote',cmd:'request_state'}));connEl.textContent='⏳ Đã kết nối, đợi Desktop...';connEl.className='';});
@@ -2417,9 +3154,24 @@ qrBtn.addEventListener('click',showQRPanel);
     try{
       const d=JSON.parse(payload.toString());if(d.from!=='desktop')return;
       connEl.textContent='✅ Đã kết nối Desktop';connEl.className='ok';
-      if(d.timer!==undefined)timerEl.textContent=d.timer;if(d.task!==undefined)taskEl.textContent=d.task||'';
-      if(d.phase!==undefined)phaseEl.textContent=d.phase||'';if(d.progress!==undefined)pfEl.style.width=d.progress+'%';
+      if(d.theme){
+        THEMES.forEach(t=>document.body.classList.remove('theme-'+t));
+        if(d.theme!=='default') document.body.classList.add('theme-'+d.theme);
+        document.querySelectorAll('.rm-tsw').forEach(s=>s.classList.toggle('active',s.dataset.theme===d.theme));
+      }
+      if(d.timer!==undefined)timerEl.textContent=d.timer;
+      if(d.task!==undefined)taskEl.textContent=d.task||'';
+      if(d.phase!==undefined){
+        phaseEl.textContent=d.phase||'';
+        /* detect session complete: phase flipped from focus→break */
+        if(lastPhaseText.includes('FOCUS')&&d.phase.includes('BREAK')){
+          rmLogFocusSession(lsGet('focus_duration',25));
+        }
+        lastPhaseText=d.phase||'';
+      }
+      if(d.progress!==undefined)pfEl.style.width=d.progress+'%';
       if(d.tasks)rmRenderTasks(d.tasks);
+      if(d.focusDuration)lsSet('focus_duration',d.focusDuration);
     }catch(ex){}
   });
   rmClient.on('error',()=>{connEl.textContent='⚠️ Lỗi kết nối';connEl.className='err';});
